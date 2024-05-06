@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch Example</title>
+</head>
+<body>
+  <button id="fetchButton">Fetch Data</button>
+
+  <script>
+    // Define the URL of the API endpoint
+    //const apiUrl = 'https://api.example.com/data';
+    const apiUrl = '/handle_post';
+
+    // Function to fetch data from the API
+    function fetchData() {
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json(); // Parse response body as JSON
+        })
+        .then(data => {
+          console.log('Data received:', data);
+          // Handle the received data
+        })
+        .catch(error => {
+          console.error('There was a problem with the fetch operation:', error);
+          // Handle error
+        });
+    }
+
+    // Add event listener to the fetch button
+    const fetchButton = document.getElementById('fetchButton');
+    fetchButton.addEventListener('click', fetchData);
+  </script>
+</body>
+</html>
