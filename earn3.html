@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>JavaScript to Python Example</title> 
+    <script src="ajax_code.js"></script>
+    <!--
+    
+    <script src="about_us.txt"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+-->
+</head> 
+<style type="text/css">
+    th, td {
+      padding: 2px;
+      /*
+      border: 1px solid black;
+      */
+    }    
+</style>
+<body> 
+    Type the stock symbol you want to know about.<br>
+    <input type="text" id="input_symbol"><br>
+    and then click the information you want to have.<br><br>
+    <button id="button_prices" onclick="return_prices()">Historical Prices</button> 
+    <button id="button_earnings" onclick="return_earnings()">Historical Earnings</button><br><br>
+    <button id="button_earnings_prices" onclick="return_earn_prices()">Prices Around Earnings</button><br><br>
+    <!--<button onclick="sendData()">inquire!</button>
+    <a href="/about_us" target="_blank" class="block" font="6">about us</a>
+    -->
+    <div id="output_data1">output_data1</div>
+    <div id="output_data2">output_data2</div> 
+    <script> 
+        function return_prices() { 
+            var symbol = document.getElementById('input_symbol').value; 
+            const url = '/handle_post'; // Replace with your API endpoint
+            // Data to be sent in the request body (if any)
+            const data = {
+              name: 'John Doe',
+              email: 'john@example.com'
+            };
+            // Options for the fetch request
+            const options = {
+              method: 'POST', // HTTP method
+              headers: {
+                'Content-Type': 'application/json' // Specify the content type of the request body
+              },
+              body: JSON.stringify(data) // Convert data to JSON string
+            };
+            // Make the POST request using fetch
+            fetch(url, options)
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse response body as JSON
+              })
+              .then(data => {
+                console.log('Response data:', data);
+                // Handle response data
+              })
+              .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                // Handle error
+              });            
+
+
+    </script> 
+</body> 
+</html> 
