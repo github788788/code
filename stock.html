@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+<script src="util.js"></script>
+<script src="data.js"></script> 
+</head>
+<html><title>stocks</title>
+what stock to look for?<br>
+<input id="stock" onchange="show_prices()"><br>
+<br>
+<table>
+	<header>
+		<tr>
+			<p id="h1" onclick="f0()"><th>Symbol</th></p>
+			<p id="h2" onclick="f1()"><th>Stock</th></p>
+			<p id="h3" onclick="f2()"><th>Volume*Price</th></p>
+			<p id="h4" onclick="f3()"><th>Continuance/Reversals</th></p>
+			<p id="h5" onclick="f4()"><th>Market Cap</th></p>
+			<p id="h6" onclick="f5()"><th>Earnings Day</th></p>
+		</tr>
+	</header>
+</table>
+<p id="table"></p><br>
+<p id="print_out">id=</p>
+<p id="test2"></p>
+
+<script type="text/javascript">
+	var header = []
+	var stock_data = []
+	header.push(['Symbol', 'Stock', 'Volume*Price', 'Continuance/Reversals', 'Market Cap', 'Earnings Day'])
+	stock_data.push(['JPM', 'JPMorgan ', '3.72', 'CRCRCRCCR', '571150000000', '5Friday'])
+	stock_data.push(['WFC', 'Wells Fargo&Co ', '3.09', 'CCRCRCCRC', '203500000000', '5Friday'])
+	stock_data.push(['C', 'Citigroup ', '2.19', 'CRRCRCCCR', '120550000000', '5Friday'])
+	stock_data.push(['BLK', 'BlackRock ', '0.99', 'RCRCRRRCR', '120930000000', '4Thursday'])
+	stock_data.push(['DAL', 'Delta Air Lines ', '0.95', 'CRRRRCRCC', '29890000000', '3Wednesday'])
+	stock_data.push(['TLRY', 'Tilray ', '0.78', 'RRCCCRCRC', '1840000000', '2Tuesday'])
+	stock_data.push(['KMX', 'CarMax ', '0.58', 'RRCCRCCCR', '13250000000', '4Thursday'])
+	stock_data.push(['STZ', 'Constellation Brands A ', '0.48', 'CCRRCCCCR', '48750000000', '4Thursday'])
+	stock_data.push(['STT', 'State Street ', '0.35', 'RRCRCRCRR', '23320000000', '5Friday'])
+	stock_data.push(['FAST', 'Fastenal ', '0.32', 'CCRRCRCRR', '43640000000', '4Thursday'])
+	stock_data.push(['LOVE', 'Lovesac ', '0.26', 'CCRCCRRC', '339210000', '4Thursday'])
+	stock_data.push(['ACI', 'Albertsons ', '0.19', 'RCRRRRRCC', '12160000000', '2Tuesday'])
+	stock_data.push(['WDFC', 'WD-40 ', '0.05', 'CRCCRCCRC', '3320000000', '2Tuesday'])
+	stock_data.push(['NEOG', 'Neogen ', '0.04', 'RRRCCRRR', '3110000000', '2Tuesday'])
+	stock_data.push(['SGH', 'Smart Global ', '0.04', 'CCRRRCC', '1340000000', '2Tuesday'])
+	stock_data.push(['CGNT', 'Cognyte Software ', '0.03', 'RCRCRRRCR', '574250000', '2Tuesday'])
+	stock_data.push(['WAFD', 'WaFd Inc ', '0.02', 'CRCRRCCCR', '2260000000', '4Thursday'])
+	stock_data.push(['PSMT', 'PriceSmart ', '0.02', 'CRCRCRRCC', '2450000000', '2Tuesday'])
+	stock_data.push(['CONN', 'Conns ', '0.01', 'RCRCRCRR', '75120000', '4Thursday'])	
+	function sort_table(input){
+		//sort_table([2,"table"])
+		column_sort = input[0]
+		id_to_replace=input[1]
+		//table_html=input[2]
+		stock_data = sort_array([stock_data,column_sort])
+		table_html = "<table><header>"
+		for(var a=0;a<header.length;a++){
+			table_html = table_html+"<tr>"
+			for(var b=0;b<header[a].length;b++){
+				table_html = table_html+"<th>"+header[a][b]+"</th>"
+			}table_html = table_html+"</tr>"}
+		table_html = table_html+"</header><tbody>"
+		//now you can sort stock_data and
+		//header doesn't get affected by it
+		//table_html = "<table>"
+		for(var a=0;a<stock_data.length;a++){
+			table_html = table_html+"<tr>"
+			for(var b=0;b<stock_data[a].length;b++){
+				table_html = table_html+"<td>"+stock_data[a][b]+"</td>"
+			}table_html = table_html+"</tr>"}
+		table_html = table_html+"</tbody></table>"
+		//document.getElementById("header").innerHTML=header_html;
+		document.getElementById(id_to_replace).innerHTML=table_html;
+	}
+	//sort_table([2])
+	sort_table([2,"table"])
+	//let id = document.getElementsByTagName("a").id;
+	//document.getElementById("test2").innerHTML=grand_array
+	function show_prices(){
+		input = document.getElementById("stock").value
+		input.toUpperCase()
+		correct = ""
+		array = ""
+		for(var a=0;a<grand_array.length;a++){
+			check = grand_array[a][0]
+			if(check.includes(input)==true){
+				correct = check
+				array = grand_array[a][1]
+			}
+		}
+		html_text = gen_table_html([array])
+		document.getElementById("test2").innerHTML=html_text;
+	}	
+
+</script>
+</html>
