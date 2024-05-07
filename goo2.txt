@@ -1,5 +1,0 @@
-transunion
-equifax
-experian
-
-customer service
