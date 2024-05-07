@@ -190,6 +190,7 @@ def update_github():
 	git_commit([update_in_github])
 
 	write_data([last_saved_file,check])
+	print("0last_edited.csv was created new")
 
 input_generate_7z_file =str(input("generate 7z file? 1 for yes, blank for no = "))
 input_email_to_self =str(input("email? 1 for yes, blank for no  = "))
