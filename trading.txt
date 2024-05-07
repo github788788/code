@@ -1,6 +1,0 @@
-symbol = spy
-date_in_question= 2024-03-07
-call_or_put = p
-override_expiration = 510
-
-
