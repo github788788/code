@@ -1,9 +1,9 @@
 exec(open('util.py').read())
 def compile(inp):
 
-	main_file = "open.py"
+	main_file = "open4.py"
 	files_to_compile = []
-	#files_to_compile.append("util")
+	files_to_compile.append("util")
 	#files_to_compile.append("nav2")
 	files_to_compile.append(main_file)
 	for a,val in enumerate(files_to_compile):
@@ -21,7 +21,8 @@ def compile(inp):
 	command = "python -m py_compile "+out_file
 	os.system(command)
 	file_to_open = "C:\\Users\\-\\code\\__pycache__\\"+main_file+"_compiled.cpython-37.pyc"
-	#sw2([file_to_open,0])
+	open_py_cache="C:\\Users\\--\\code\\__pycache__"
+	sw2([open_py_cache,0])
 
 
 
