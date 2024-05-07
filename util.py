@@ -804,6 +804,35 @@ def opt3(inp):
 			alt(1,1)
 		opt2([val,0])
 
+
+def alt_win81(inputs):
+	#alt_win81(["Sublime",2])
+	search_term = inputs[0]
+	wait_time = inputs[1]
+	to_find = search_term
+	import pygetwindow as gw
+	# Get a list of all open windows
+	windows = gw.getAllWindows()
+	window_names = []
+	for window in windows:
+		window_names.append(window.title)
+	pri(window_names)	
+	for window in windows:
+	    # Print window title (for demonstration)
+	    title = window.title
+	    #if "Sublime" in title and "tes2.py" not in title:
+	    if to_find in title:
+	    	print(window.title)
+	    	window.activate()
+	time.sleep(wait_time)
+	"""
+	    	time.sleep(1)    
+	    	for a in range(0,20):
+	    		hold_button(["ctrl","f4",1,0])
+	    		key([["n",1,0,0]])
+	    		"""
+
+
 def alt(cl,wa):
 	#alt(1,1)
 	hod3(["alt","tab",cl,wa])
@@ -1416,6 +1445,21 @@ def hold_button(inp):
 	pyautogui.keyUp(first)
 	time.sleep(wait) 
 
+def hold_2_buttons(inp):
+	#hold_2_buttons(["ctrl","shift","n",1,1])
+	hold_button_1 = inp[0]
+	hold_button_2 = inp[1]
+	button_click = inp[2]
+	clicks = inp[3]
+	wait = inp[4]
+	pyautogui.keyDown(hold_button_1)
+	pyautogui.keyDown(hold_button_2)
+	for a in range(0,clicks):
+		pyautogui.press(button_click)
+	pyautogui.keyUp(hold_button_1)
+	pyautogui.keyUp(hold_button_2)
+	time.sleep(wait) 
+
 
 
 def ne72(inp):
@@ -1898,18 +1942,11 @@ def pri(inp):
 	print("--------------------list below-----------------------")
 	try:
 		for a,val in enumerate(array):
-			print(a," = ",val)
+			print(a," = ",val,len(val))
 	except:
 		#fail = "fail"
 		print("don't work! type of array = "+str(type(array)))
 
-		"""
-	if type(inp)==list:
-		for a,val in enumerate(inp):
-			print(str(a)+" = "+str(val))
-	else:
-		print(str(inp))
-		"""
 
 def pri2(inp):
 	ray = inp[0]
@@ -3235,6 +3272,8 @@ def load_data(inp):
 		with open(load_file, 'r') as f:
 			loaded_data = json.load(f)
 	if ".txt" in load_file or ".py" in load_file or ".js" in load_file or ".html" in load_file:
+		#with open(load_file, encoding='utf-8') as f:
+		#    loaded_data = f.read()
 		text = open(load_file, "r")
 		loaded_data = text.read()
 	return loaded_data
@@ -3432,9 +3471,10 @@ def click_logo2(inp):
 
 
 def click_logo4(inp):
-	#click_logo4(["cat.png"])
+	#click_logo4(["cat.png",2])
 	#image_path = 'paperclip4.png'  # Path to the image you want to find
 	image_path = inp[0]  # Path to the image you want to find
+	wait_time = inp[1]
 	#import pyautogui
 	def find_image_on_screen(image_path):
 	    # Locate the center coordinates of the image on the screen
@@ -3450,7 +3490,7 @@ def click_logo4(inp):
 	x_coordinate = coordinates[0]
 	y_coordinate = coordinates[1]
 	pyautogui.click(x_coordinate,y_coordinate)
-
+	time.sleep(wait_time)
 
 """
 from inspect import currentframe, getframeinfo
@@ -3711,3 +3751,8 @@ def get_last_modified_time(file_path):
     # Convert the timestamp to a datetime object
     last_modified_datetime = datetime.datetime.fromtimestamp(last_modified_timestamp)
     return last_modified_datetime
+
+def get_running_windows(inp):
+	#running = get_running_windows([])
+    running_windows = gw.getAllTitles()
+    return running_windows
