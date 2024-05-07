@@ -1,6 +1,6 @@
 exec(open('util.py').read())
 def open(inp):
-	
+	#import subprocess,time
 	to_open_with = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
 	what_to_open = "file:///C:/Users/--/code/open2.html"
 	subprocess.Popen([to_open_with, "--incognito",what_to_open])
