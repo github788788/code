@@ -98,16 +98,14 @@ def generate_7z_file(inp):
 	
 def email(inp):
 	#click_logo2(["new_message.png"])
-	click_logo4(["new_message4.png"])
-	time.sleep(2)
+	click_logo4(["new_message4.png",2])
 	emails = "media788788@gmail.com,violin78@protonmail.com,cello34@protonmail.com,violin78@mail.com,usa2@email.com"
 	#copy_paste([emails])
 	copy_paste2([emails,0])
 	key([["tab",1,0,1]])
 	#wri("code.7z",1)
 	copy_paste2(["code.7z",0])
-	click_logo4(["paperclip4.png"])
-	time.sleep(1)
+	click_logo4(["paperclip4.png",1])
 	#cwd = os.getcwd()
 
 	#folder = cwd.replace("code","Downloads")
@@ -117,7 +115,7 @@ def email(inp):
 	#copy_paste([code_file])
 	copy_paste2([code_file,0])
 	key([["enter",1,0,3]])
-	click_logo4(["send4.png"])
+	click_logo4(["send4.png",1])
 
 def update_github():
 	import requests
@@ -130,48 +128,47 @@ def update_github():
 	    else:
 	        print(f"Failed to fetch repository contents. Status code: {response.status_code}")
 	        return None
-	username = "github788788"
-	repo_name = "code"
-	repo_contents = get_repository_contents(username, repo_name)
-	#pri(repo_contents)
+
+	from github import Github
+	access_token = load_data(["github_token.txt"])
+	repository_name = 'code'
+	g = Github(access_token)
+	repo = g.get_user().get_repo(repository_name)
+	contents = repo.get_contents("")
+
 	files_in_repository = []
-	try:
-		for a,val in enumerate(repo_contents):
-			file_name = val['name']
-			#print(a,file_name)
-			files_in_repository.append(file_name)
-	except:
-		skip = "yes"
+	for content in contents:
+	    if content.type == "file":
+	        files_in_repository.append(content.path)
+	        #print(content.path)
 	pri(files_in_repository)
-	#end()
+
 	cwd = os.getcwd()
 	files_in_cwd = os.listdir(cwd)
 	pri(files_in_cwd)
-	in_repo_but_not_in_cwd = []
+
+	to_delete_from_repository = []
 	for a,val in enumerate(files_in_repository):
 		if val not in files_in_cwd:
-			in_repo_but_not_in_cwd.append(val)
-	pri(in_repo_but_not_in_cwd)
-	to_delete_from_repo = in_repo_but_not_in_cwd
+			to_delete_from_repository.append(val)
+
+	pri(to_delete_from_repository)
 	from git_delete import git_delete
 	print("now deleting from github files that were deleted")
-	git_delete([to_delete_from_repo])
-	print("updating github complete")
-	in_cwd_but_not_in_repo = []
+	git_delete([to_delete_from_repository])
+
+	to_create_in_respository = []
 	for a,val in enumerate(files_in_cwd):
 		if val not in files_in_repository:
-			in_cwd_but_not_in_repo.append(val)
-	to_upload_to_github = in_cwd_but_not_in_repo
-	##still need to make sure this works
+			to_create_in_respository.append(val)
 	from git_commit import git_commit
-	git_commit([to_upload_to_github])
+	print("now deleting from github files that were deleted")
+	git_commit([to_create_in_respository])
 
 	last_saved_file = "0last_edited.csv"
 	last_saved_data = load_data([last_saved_file])
-	cwd = os.getcwd()
-	files = os.listdir(cwd)
 	check = []
-	for a,val in enumerate(files):
+	for a,val in enumerate(files_in_cwd):
 		#print(val)
 		modification_time = os.path.getmtime(val)
 		formatted_last_modification_time = datetime.datetime.fromtimestamp(modification_time).strftime('%Y-%m-%d %H:%M:%S.%f')
@@ -185,13 +182,14 @@ def update_github():
 		for b,valb in enumerate(check):
 			if val[0]==valb[0]:
 				if val[1]!=valb[1]:
+					if len(val[0])==1:
+						continue
 					update_in_github.append(val[0])
+	print("update_in_github")
 	pri(update_in_github)
-	git_commit(update_in_github)
-	
+	git_commit([update_in_github])
+
 	write_data([last_saved_file,check])
-
-
 
 input_generate_7z_file =str(input("generate 7z file? 1 for yes, blank for no = "))
 input_email_to_self =str(input("email? 1 for yes, blank for no  = "))
