@@ -1,2 +1,0 @@
-"I have to test a voltage controller..but..the last time I did that it actually ruptured on the PCB because they
- amp/current was too high, it is just 12V..but..that was enough to rupture the last one, so, how do I do that?"
