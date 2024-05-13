@@ -3756,3 +3756,37 @@ def get_running_windows(inp):
 	#running = get_running_windows([])
     running_windows = gw.getAllTitles()
     return running_windows
+
+def open_window(inputs):
+	#open_window(["0reddit",0])
+	window_to_open = inputs[0]
+	wait_time = inputs[1]
+	import pygetwindow as gw
+	# Get a list of all open windows
+	windows = gw.getAllWindows()
+	window_names = []
+	for window in windows:
+		window_names.append(window.title)
+	pri(window_names)	
+	#end()
+	for window in windows:
+	    # Print window title (for demonstration)
+	    title = window.title
+	    #if "Sublime" in title and "tes2.py" not in title:
+	    if window_to_open in title:
+	    	print(window.title)
+	    	window.activate()
+	time.sleep(wait_time)
+
+def get_window_list(inputs):
+	#window_list = get_window_list()
+	window_to_open = inputs[0]
+	wait_time = inputs[1]
+	import pygetwindow as gw
+	# Get a list of all open windows
+	windows = gw.getAllWindows()
+	window_names = []
+	for window in windows:
+		window_names.append(window.title)
+	pri(window_names)	
+	return window_names
