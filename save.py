@@ -43,7 +43,8 @@ def copy_to_other_partition():
 		try:
 			os.remove(new_dir+"\\"+val)
 		except:
-			shutil.rmtree(new_dir+"\\"+val)
+			#shutil.rmtree(new_dir+"\\"+val)
+			continue
 	#end()
 
 	for a,val in enumerate(files):
