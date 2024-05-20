@@ -1,12 +1,13 @@
 exec(open('util.py').read())
 def rumble_gen_iframe(inp):
 	base_iframe = """
-	<iframe frameborder="0" width="500" height="300" 
-	src="https://rumble.com/embed/___rumble_code___/?pub=3i4h9q" 
-	allowfullscreen="" loading="lazy" id="iquku"
-	class="rumble">
-    </iframe>
+<iframe frameborder="0" width="500" height="300" 
+src="https://rumble.com/embed/___rumble_code___/?pub=3i4h9q" 
+allowfullscreen="" loading="lazy" id="iquku"
+class="rumble">
+</iframe>
 	"""	
+	base_link = "<a href=\"___rumble_url___\">Link = ___rumble_url___</a>"
 
 
 	#1st=title,2nd = embed url
@@ -23,6 +24,7 @@ def rumble_gen_iframe(inp):
 	out_text =""
 	out_file ="rumble_iframes.txt"
 	for a,val in enumerate(rumble_data):
+		rumble_url = val[0]
 		description = val[0]
 		description = description.replace("https://rumble.com/","")
 		description = description.replace(".html","")
@@ -32,7 +34,10 @@ def rumble_gen_iframe(inp):
 		code = code.replace("https://rumble.com/embed/","")
 		code = code.replace("/?pub=3i4h9q","")
 		iframe = base_iframe.replace("___rumble_code___",code)
-		out_text = out_text+description+"\n"+iframe+"\n\n"
+		#link = base_link.replace("___rumble_url___",rumble_url)
+		out_text = out_text+description+"\n\n"+"Link = "+rumble_url+"\n\n"+rumble_url+"\n\n"+iframe+"\n\n"
+
+
 
 	write_data([out_file,out_text])
 	start_file([out_file,0])
