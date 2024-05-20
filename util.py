@@ -3485,7 +3485,11 @@ def click_logo4(inp):
 	        print("Image not found on the screen.")
 	    back = [x,y]
 	    return back
-	coordinates = find_image_on_screen(image_path)
+	try:
+		coordinates = find_image_on_screen(image_path)
+	except:
+		print("-----------can't find it---------")
+		#end()
 	print(coordinates)
 	x_coordinate = coordinates[0]
 	y_coordinate = coordinates[1]
