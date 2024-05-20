@@ -5,7 +5,6 @@ def test(inp):
 	#cf(["monetized"])
 	#key([["enter",1,1,1]])
 
-
 	for a in range(0,10):
 		how_many_clicks = a
 		cf(["unique views"])
