@@ -99,7 +99,7 @@ def generate_7z_file(inp):
 	
 def email(inp):
 	#click_logo2(["new_message.png"])
-	click_logo4(["new_message5-win8.1.png",2])
+	click_logo4(["new_message4.png",2])
 	emails = "media788788@gmail.com,violin78@protonmail.com,cello34@protonmail.com,violin78@mail.com,usa2@email.com"
 	#copy_paste([emails])
 	copy_paste2([emails,0])
