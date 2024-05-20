@@ -8,7 +8,7 @@ def open2(inp):
 	urls_html_1.append("https://docs.google.com/spreadsheets/d/1qrySuja-rx_LoHcXIoLAidd1C92hqyeouNv2O7iWnDs/edit#gid=0")
 	urls_html_1.append("https://keep.google.com/")
 	urls_html_1.append("https://mail.google.com/")
-	urls_html_1.append("https://mail.proton.me/u/0/inbox")
+	urls_html_1.append("https://account.proton.me/login")
 
 	urls_html_2 = []
 	urls_html_2.append("https://www.reddit.com/login/")
