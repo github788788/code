@@ -3,7 +3,7 @@ exec(open('open_operations.py').read())
 def open3(inp):
 	import pyperclip
 	#"chrome" or "firefox"
-	browser = "chrome"
+	browser = "firefox"
 	browser_index = ""
 	if "chrome" in browser:
 		browser_index = 2
@@ -43,7 +43,12 @@ def open3(inp):
 			#html_file_to_open = "file:///C:/Users/--/code/html_to_open.html"
 			html_file_to_generate = "html_to_open.html"
 			what_to_open = "file:///C:/Users/--/code/"+html_file_to_generate
-			run.append([gen_html,[urls_to_load,html_file_to_generate]])
+			if "chrome" in browser:
+				run.append([gen_html,[urls_to_load,html_file_to_generate]])
+			if "firefox" in browser:
+				urls_to_load = urls_to_load[::-1]
+				#urls_to_load.sort(key=lambda x: x[0], reverse=True)
+				run.append([gen_html,[urls_to_load,html_file_to_generate]])
 			to_open_with = ""
 			#what_to_open = html_file_location
 			if "chrome" in browser:
@@ -51,14 +56,21 @@ def open3(inp):
 				#what_to_open = "file:///C:/Users/-/code/open.html"
 				#what_to_open = html_file_to_open
 			if "firefox" in browser:
-				skip = "skip"
+				to_open_with = "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe"
+				#skip = "skip"
 			if a==0:
 				run.append([subprocess_open,[5,what_to_open,to_open_with]])
 			if a>0:
-				run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
-				run.append([subprocess_open,[5,what_to_open,to_open_with]])
+				if "chrome" in browser:			
+					run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
+				if "firefox" in browser:			
+					run.append([hold_2_buttons,["ctrl","shift","p",1,1]])
 
-			run.append([hold_button,["ctrl","pagedown",1,1]])
+				run.append([subprocess_open,[5,what_to_open,to_open_with]])
+			if "chrome" in browser:
+				run.append([hold_button,["ctrl","pagedown",1,1]])
+			if "firefox" in browser:
+				run.append([hold_button,["ctrl","pageup",1,1]])
 			run.append([hold_button,["ctrl","f4",1,1]])
 		for b,valb in enumerate(storage):
 			check = valb[0]
