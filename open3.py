@@ -29,40 +29,45 @@ def open3(inp):
 		#print("val",val)
 		#continue
 		#generate html file to open the next 6 urls?
-		if a==0 or a+1==6 or a+1==12:	
+		if a==0 or a==6 or a==12:	
 			urls_to_load = []
-			for b in range(a,a+6):
-				to_load = inputs[b]
+			for b in range(0,6):
+				try:
+					to_load = inputs[a+b]
+				except:
+					continue
 				for c in range(0,len(storage)):
 					if storage[c][0]==to_load:
 						urls_to_load.append(storage[c][1])
 						break
-			gen_html([urls_to_load,"html_to_open.html"])
-		#now add opening that html file to the run list?
-		#if a==0:
+			#html_file_to_open = "file:///C:/Users/--/code/html_to_open.html"
+			html_file_to_generate = "html_to_open.html"
+			what_to_open = "file:///C:/Users/--/code/"+html_file_to_generate
+			run.append([gen_html,[urls_to_load,html_file_to_generate]])
 			to_open_with = ""
-			what_to_open = ""
+			#what_to_open = html_file_location
 			if "chrome" in browser:
 				to_open_with = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
 				#what_to_open = "file:///C:/Users/-/code/open.html"
-				what_to_open = "file:///C:/Users/--/code/open2.1.html"
+				#what_to_open = html_file_to_open
 			if "firefox" in browser:
 				skip = "skip"
-			run.append([subprocess_open,[5,what_to_open,to_open_with]])
+			if a==0:
+				run.append([subprocess_open,[5,what_to_open,to_open_with]])
+			if a>0:
+				run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
+				run.append([subprocess_open,[5,what_to_open,to_open_with]])
+
 			run.append([hold_button,["ctrl","pagedown",1,1]])
 			run.append([hold_button,["ctrl","f4",1,1]])
 		for b,valb in enumerate(storage):
 			check = valb[0]
-			#print(valb)
-			#print(val,check)
 			if check==val:
 				append_operations = valb[browser_index]
-				#print(append_operations)
 				for c,valc in enumerate(append_operations):
 					run.append(valc)
 				break	
-		run.append([hold_button,["ctrl","pagedown",1,1]])
-	#end()
+		run.append([hold_button,["ctrl","pagedown",1,0]])
 	pri(run)
 	#end()
 	for a,val in enumerate(run):
