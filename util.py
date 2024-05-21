@@ -3794,3 +3794,54 @@ def get_window_list(inputs):
 		window_names.append(window.title)
 	pri(window_names)	
 	return window_names
+
+def subprocess_open(inputs):
+	#subprocess_open([5,what_to_open,to_open_with])
+	#subprocess_open([5,"file:///C:/Users/--/code/open2.1.html","C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"])
+	wait_time = inputs[0]
+	what_to_open = inputs[1]
+	to_open_with = inputs[2]
+	if "chrome" in to_open_with:
+		subprocess.Popen([to_open_with, "--incognito",what_to_open])
+	time.sleep(wait_time)
+	"""
+	to_open_with = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+	#what_to_open = "file:///C:/Users/-/code/open.html"
+	what_to_open = "file:///C:/Users/--/code/open2.1.html"
+	subprocess.Popen([to_open_with, "--incognito",what_to_open])
+	"""
+
+def gen_html(inputs):
+	#gen_html([url_array,"html_to_open.html"])
+	url_list = inputs[0]
+	file_name = inputs[1]
+	base_html = """
+
+<html>
+chrome/edge opener
+<center><input value="Open" class="btn btn-default text" type="button" onclick="open_all();" id="button"></center>
+<script type="text/javascript">
+//function open_all() {
+var x = []
+//function open_all(){
+
+___url_inputs___
+
+for (var i = 0; i < x.length; i++)
+window.open(x[i]);
+//}
+//}
+</script>
+</html>
+
+	"""
+
+	html_urls = base_html
+	replace_html=""
+	for a,val in enumerate(url_list):
+		replace_html = replace_html+"x.push(\""+val+"\");\n"
+	html_urls=html_urls.replace("___url_inputs___",replace_html)
+	write_data([file_name,html_urls])
+	#write_data(["open2.2.html",html_url_2_2])	
+
+
