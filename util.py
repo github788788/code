@@ -3803,6 +3803,9 @@ def subprocess_open(inputs):
 	to_open_with = inputs[2]
 	if "chrome" in to_open_with:
 		subprocess.Popen([to_open_with, "--incognito",what_to_open])
+	if "firefox" in to_open_with:
+		subprocess.Popen([to_open_with,what_to_open])
+
 	time.sleep(wait_time)
 	"""
 	to_open_with = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
