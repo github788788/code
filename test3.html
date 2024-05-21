@@ -1,49 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Draggable Divs</title>
-  <!-- Include draggable.js library -->
-  <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable/lib/draggable.bundle.legacy.js"></script>
-  <style>
-    /* Styling for draggable elements */
-    .draggable {
-      width: 100px;
-      height: 100px;
-      background-color: #4CAF50;
-      color: white;
-      text-align: center;
-      line-height: 100px;
-      position: absolute;
-      cursor: move;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Draggable divs -->
-  <div class="draggable" style="top: 100px; left: 100px;">Drag me!</div>
-  <div class="draggable" style="top: 200px; left: 200px;">Drag me too!</div>
-
-  <script>
-    // Initialize draggable functionality
-    const draggable = new Draggable.Draggable(document.querySelectorAll('.draggable'), {
-      draggable: '.draggable',
-      handle: '.draggable',
-    });
-
-    // Add event listeners to update the position of dragged elements
-    document.querySelectorAll('.draggable').forEach((element) => {
-      element.addEventListener('dragmove', (event) => {
-        const target = event.target;
-        const dx = event.detail.source.x - event.detail.originalSource.x;
-        const dy = event.detail.source.y - event.detail.originalSource.y;
-        target.style.left = `${parseFloat(target.style.left || 0) + dx}px`;
-        target.style.top = `${parseFloat(target.style.top || 0) + dy}px`;
-      });
-    });
-  </script>
-
-</body>
+<html>
+<a href="test.mp4">
+  <img src="new_message.png" alt="Video Placeholder">
+</a>
 </html>
