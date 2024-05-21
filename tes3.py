@@ -1,7 +1,6 @@
 exec(open('util.py').read())
+exec(open('open_operations.py').read())
 
-array = [1,6,3,8,4]
-
-print(array.index(8))
+pri(storage)
 
 end()
