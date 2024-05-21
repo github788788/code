@@ -111,7 +111,7 @@ window.open(x[i]);
 
 	#start second half
 	#hold_button(["ctrl","pagedown",1,0])
-	key([["tab",4,0,2]])
+	key([["tab",5,0,2]])
 	copy_paste2(["savant78",0])
 	key([["tab",1,0,1]])
 	copy_paste2(["savant77",0])
