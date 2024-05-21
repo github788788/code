@@ -1,29 +1,6 @@
 exec(open('util.py').read())
 def open2(inp):
 	import pyperclip
-
-	storage = []
-	storage.append(["drive","https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&ec=asw-drive-hero-goto&ifkv=AaSxoQyTR1jLo_CA3AV9rvOLLJccSWhQDUux4zd05KvS9Va62ODHT1DQ-FK-Zrp_AW_0Ai9sWBhB&ltmpl=drive&passive=true&service=wise&usp=gtd&utm_campaign=web&utm_content=gotodrive&utm_medium=button&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1223926586%3A1713908316145016&theme=mn&ddm=0"])
-	storage.append(["logins","https://docs.google.com/spreadsheets/d/1pveuTlsMCB5vKhEhwBA28IidJPkOokVk/edit#gid=1983355307"])
-	storage.append(["reddit_questions","https://docs.google.com/spreadsheets/d/1qrySuja-rx_LoHcXIoLAidd1C92hqyeouNv2O7iWnDs/edit#gid=0"])
-	storage.append(["keep","https://keep.google.com/"])
-	storage.append(["gmail","https://mail.google.com/"])
-	storage.append(["proton.me","https://account.proton.me/login"])
-	storage.append(["reddit_login",""])
-	storage.append(["reddit_notifications",""])
-	storage.append(["twitter_login",""])
-	storage.append(["messenger",""])
-	storage.append(["chatgpt",""])
-
-	new = []
-	new.append("drive")
-	new.append("https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&ec=asw-drive-hero-goto&ifkv=AaSxoQyTR1jLo_CA3AV9rvOLLJccSWhQDUux4zd05KvS9Va62ODHT1DQ-FK-Zrp_AW_0Ai9sWBhB&ltmpl=drive&passive=true&service=wise&usp=gtd&utm_campaign=web&utm_content=gotodrive&utm_medium=button&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1223926586%3A1713908316145016&theme=mn&ddm=0")
-	chrome_operations.append([])
-	firefox_operations.append([])
-	new.append(chrome_operations)
-	new.append(firefox_operations)
-	storage.append(new)
-
 	#"chrome" or "firefox"
 	browser = "chrome"
 	browser_index = ""
@@ -31,6 +8,33 @@ def open2(inp):
 		browser_index = 2
 	if "firefox" in browser:
 		browser_index = 3
+		
+	storage = []
+	storage.append(["drive","https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&ec=asw-drive-hero-goto&ifkv=AaSxoQyTR1jLo_CA3AV9rvOLLJccSWhQDUux4zd05KvS9Va62ODHT1DQ-FK-Zrp_AW_0Ai9sWBhB&ltmpl=drive&passive=true&service=wise&usp=gtd&utm_campaign=web&utm_content=gotodrive&utm_medium=button&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1223926586%3A1713908316145016&theme=mn&ddm=0"])
+	storage.append(["logins","https://docs.google.com/spreadsheets/d/1pveuTlsMCB5vKhEhwBA28IidJPkOokVk/edit#gid=1983355307"])
+	storage.append(["reddit_questions","https://docs.google.com/spreadsheets/d/1qrySuja-rx_LoHcXIoLAidd1C92hqyeouNv2O7iWnDs/edit#gid=0"])
+	storage.append(["keep","https://keep.google.com/"])
+	storage.append(["gmail","https://mail.google.com/"])
+	storage.append(["proton.me","https://account.proton.me/login"])
+	storage.append(["reddit_login","https://www.reddit.com/login/"])
+	storage.append(["reddit_notifications","https://www.reddit.com/notifications"])
+	storage.append(["twitter_login","https://twitter.com/i/flow/login"])
+	storage.append(["messenger","https://www.messenger.com"])
+	storage.append(["chatgpt","https://auth.openai.com/authorize?client_id=TdJIcbe16WoTHtN95nyywh5E4yOo6ItG&scope=openid+email+profile+offline_access+model.request+model.read+organization.read+organization.write&response_type=code&redirect_uri=https%3A%2F%2Fchatgpt.com%2Fapi%2Fauth%2Fcallback%2Flogin-web&audience=https%3A%2F%2Fapi.openai.com%2Fv1&device_id=aaa1f3ab-045e-4b14-869d-1b7da8b2f8ac&prompt=login&state=sAYCYO4I26abKym8hhHX3fTHfjmYa-CrMlm-w7kTJKw&code_challenge=ul1ssINYqpK70A9EDPA-HbbXAmsvRgZzN6I6V0SGKFg&code_challenge_method=S256"])
+
+	new = []
+	new.append("drive")
+	new.append("https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&ec=asw-drive-hero-goto&ifkv=AaSxoQyTR1jLo_CA3AV9rvOLLJccSWhQDUux4zd05KvS9Va62ODHT1DQ-FK-Zrp_AW_0Ai9sWBhB&ltmpl=drive&passive=true&service=wise&usp=gtd&utm_campaign=web&utm_content=gotodrive&utm_medium=button&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1223926586%3A1713908316145016&theme=mn&ddm=0")
+	chrome_operations = []
+	firefox_operations = []
+	chrome_operations.append([copy_paste2,["media788788",1]])
+	chrome_operations.append([key,[["enter",1,0,5]]])
+	chrome_operations.append([copy_paste2,["Medmed1!",1]])
+	chrome_operations.append([key,[["enter",1,0,0]]])
+	firefox_operations.append([])
+	new.append(chrome_operations)
+	new.append(firefox_operations)
+	storage.append(new)
 
 
 	inputs = ["drive"]
