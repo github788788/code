@@ -116,7 +116,7 @@ def email(inp):
 	#copy_paste([code_file])
 	copy_paste2([code_file,0])
 	key([["enter",1,0,3]])
-	click_logo4(["send4.png",1])
+	click_logo4(["send4.png",3])
 
 def update_github():
 	import requests
