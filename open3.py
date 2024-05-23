@@ -70,7 +70,8 @@ def open3(inp):
 			if "chrome" in browser:
 				run.append([hold_button,["ctrl","pagedown",1,1]])
 				run.append([hold_button,["ctrl","f4",1,1]])
-				run.append([hold_button,["ctrl","f4",1,1]])
+				if a>0:
+					run.append([hold_button,["ctrl","f4",1,1]])
 			if "firefox" in browser:
 				run.append([hold_button,["ctrl","pageup",1,1]])
 				run.append([hold_button,["ctrl","f4",1,1]])
