@@ -70,8 +70,8 @@ new.append(firefox_operations)
 storage.append(new)
 
 new = []
-new.append("proton.me")
-new.append("https://account.proton.me/login")
+new.append("protonmail")
+new.append("https://account.proton.me/mail")
 chrome_operations = []
 firefox_operations = []
 chrome_operations.append([copy_paste2,["violin78",1]])
