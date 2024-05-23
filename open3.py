@@ -3,7 +3,7 @@ exec(open('open_operations.py').read())
 def open3(inp):
 	import pyperclip
 	#"chrome" or "firefox"
-	browser = "firefox"
+	browser = "chrome"
 	browser_index = ""
 	if "chrome" in browser:
 		browser_index = 2
@@ -16,7 +16,7 @@ def open3(inp):
 	inputs.append("reddit_questions")
 	inputs.append("keep")
 	inputs.append("gmail")
-	inputs.append("proton.me")
+	inputs.append("protonmail")
 	inputs.append("reddit_login")
 	inputs.append("reddit_notifications")
 	inputs.append("twitter_login")
@@ -64,7 +64,7 @@ def open3(inp):
 				if "chrome" in browser:			
 					run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
 				if "firefox" in browser:			
-					run.append([hold_2_buttons,["ctrl","shift","p",1,1]])
+					run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
 
 				run.append([subprocess_open,[5,what_to_open,to_open_with]])
 			if "chrome" in browser:
