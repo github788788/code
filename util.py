@@ -607,6 +607,20 @@ def cf_et(text):
 	wri(text,1)
 	but(["esc","tab"],0,0)
 
+
+def cf_et_new(inputs):
+	#cf_et_new([text,wait1,wait2,wait3])
+	text = inputs[0]
+	wait1 = inputs[1]
+	wait2 = inputs[2]
+	wait3 = inputs[3]
+
+	hod3(["ctrl","f",1,wait1])
+	wri(text,wait2)
+	key([["esc",1,0,0]])
+	key([["tab",1,0,0]])
+	time.sleep(wait3)
+
 def cf_et2(inp):
 	#cf_et2(["email"])
 	tex = inp[0]
