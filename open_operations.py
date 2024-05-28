@@ -92,10 +92,12 @@ new.append("https://old.reddit.com/login/")
 chrome_operations = []
 firefox_operations = []
 #chrome_operations.append([copy_paste2,["media788788",1]])
-chrome_operations.append([key,[["tab",3,0,1]]])
+chrome_operations.append([cf_et_new,["username",1,1,1]])
 chrome_operations.append([copy_paste2,["savant78",1]])
+#chrome_operations.append([copy_paste2,["media788788",1]])
 chrome_operations.append([key,[["tab",1,0,0]]])
 chrome_operations.append([copy_paste2,["savant77",1]])
+chrome_operations.append([key,[["enter",1,0,0]]])
 firefox_operations.append([])
 new.append(chrome_operations)
 new.append(firefox_operations)
@@ -120,7 +122,7 @@ new.append("twitter_login")
 new.append("https://twitter.com/i/flow/login")
 chrome_operations = []
 firefox_operations = []
-chrome_operations.append([key,[["tab",3,0,1]]])
+chrome_operations.append([key,[["tab",4,0,1]]])
 chrome_operations.append([copy_paste2,["oversight333",1]])
 chrome_operations.append([key,[["enter",1,0,2]]])
 chrome_operations.append([copy_paste2,["Oveove1!",1]])
