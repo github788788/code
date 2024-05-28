@@ -3,7 +3,7 @@ def frame(inp):
 	
 	import cv2
 	directory = "C:\\Users\\-\\Downloads\\"
-	file_name = "ukr2"
+	file_name = "tennis"
 	file = file_name+".mp4"
 	file_location = directory+file
 	vidObj = cv2.VideoCapture(file_location)
@@ -16,7 +16,8 @@ def frame(inp):
 		vidObj.set(cv2.CAP_PROP_POS_FRAMES, a)
 		ret, frame = vidObj.read()
 
-		cv2.imwrite(output_file, image)
+		#cv2.imwrite(output_file, image)
+		cv2.imwrite(output_file, frame)
 		#cv2.imwrite('my_video_frame.png', frame)
 
 		print(output_file)
