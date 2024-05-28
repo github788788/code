@@ -35,7 +35,7 @@ def frame3(inp):
 
 	#num_frames is max number of frames?
 	#num_frames
-	for a in range(1750,1800):
+	for a in range(1980,2100):
 		frame_number = a  # Specify the frame number you want to save
 		output_path = "C:\\Users\\--\\Downloads\\tennis-frame-"+str(frame_number)+".jpg"
 		save_frame(video_path, output_path, frame_number)
