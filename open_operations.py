@@ -165,4 +165,20 @@ new.append(chrome_operations)
 new.append(firefox_operations)
 storage.append(new)
 
+new = []
+new.append("atl")
+new.append("https://www.atlanticunionbanksecure.com/dbank/live/app/login/consumer")
+chrome_operations = []
+firefox_operations = []
+chrome_operations.append([cf_et_new,["username",1,1,1]])
+chrome_operations.append([copy_paste2,["atlatl",1]])
+chrome_operations.append([key,[["tab",2,0,1]]])
+chrome_operations.append([copy_paste2,["Medmed1!",1]])
+chrome_operations.append([key,[["enter",1,0,0]]])
+firefox_operations.append([])
+new.append(chrome_operations)
+new.append(firefox_operations)
+storage.append(new)
+
+
 
