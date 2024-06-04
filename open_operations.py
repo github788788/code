@@ -180,5 +180,18 @@ new.append(chrome_operations)
 new.append(firefox_operations)
 storage.append(new)
 
-
+new = []
+new.append("lowes")
+new.append("https://www.lowes.com/u/login/oauth2/authorize?redirect_uri=https%3A%2F%2Fwww.lowes.com%2Fu%2Flogin%2Foauth2%2Fpostauthorize&scope=general-digital-access&client_id=loweswebclient&state=NExMekhzOFQ4azd4WFo1ejQ4RVlyTTJiQ0gyM0gxVW85RWVId0t5ZEcwMUh3eU1GZW55Q1Y5Z3FuV1NCNEwySw%3D%3D&code_challenge=-97sXjLwWq_WGP6TegZLkMwmS8HzF0JtzvkL8QJRHE0&code_challenge_method=S256&redirect=https%3A%2F%2Fwww.lowes.com%2Fcart")
+chrome_operations = []
+firefox_operations = []
+chrome_operations.append([cf_et_new,["lowe's",1,1,1]])
+chrome_operations.append([copy_paste2,["media788788@gmail.com",1]])
+chrome_operations.append([key,[["tab",1,0,1]]])
+chrome_operations.append([copy_paste2,["Medmed1!",1]])
+chrome_operations.append([key,[["enter",1,0,0]]])
+firefox_operations.append([])
+new.append(chrome_operations)
+new.append(firefox_operations)
+storage.append(new)
 
