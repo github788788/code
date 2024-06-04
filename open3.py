@@ -10,19 +10,20 @@ def open3(inp):
 	if "firefox" in browser:
 		browser_index = 3
 
-	inputs = []
-	inputs.append("drive")
-	inputs.append("logins")	
-	inputs.append("reddit_questions")
-	inputs.append("keep")
-	inputs.append("gmail")
-	inputs.append("protonmail")
-	inputs.append("reddit_login")
-	inputs.append("reddit_notifications")
-	inputs.append("twitter_login")
-	inputs.append("messenger")
-	inputs.append("chatgpt")
-
+	inputs = whi("to open? just hit enter to open normal ones? = ")
+	if len(inputs)==0:
+		inputs = []
+		inputs.append("drive")
+		inputs.append("logins")	
+		inputs.append("reddit_questions")
+		inputs.append("keep")
+		inputs.append("gmail")
+		inputs.append("protonmail")
+		inputs.append("reddit_login")
+		inputs.append("reddit_notifications")
+		inputs.append("twitter_login")
+		inputs.append("messenger")
+		inputs.append("chatgpt")
 	run = []
 	for a in range(0,len(inputs)):
 		val = inputs[a]
@@ -68,10 +69,11 @@ def open3(inp):
 
 				run.append([subprocess_open,[5,what_to_open,to_open_with]])
 			if "chrome" in browser:
-				run.append([hold_button,["ctrl","pagedown",1,1]])
-				run.append([hold_button,["ctrl","f4",1,1]])
-				if a>0:
+				if len(inputs)>8:
+					run.append([hold_button,["ctrl","pagedown",1,1]])
 					run.append([hold_button,["ctrl","f4",1,1]])
+					if a>0:
+						run.append([hold_button,["ctrl","f4",1,1]])
 			if "firefox" in browser:
 				run.append([hold_button,["ctrl","pageup",1,1]])
 				run.append([hold_button,["ctrl","f4",1,1]])
@@ -84,7 +86,7 @@ def open3(inp):
 				for c,valc in enumerate(append_operations):
 					run.append(valc)
 				break	
-		run.append([hold_button,["ctrl","pagedown",1,0]])
+		#run.append([hold_button,["ctrl","pagedown",1,0]])
 	pri(run)
 	#end()
 	for a,val in enumerate(run):
