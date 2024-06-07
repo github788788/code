@@ -4,7 +4,7 @@ storage = []
 
 new = []
 new.append("drive")
-new.append("https://keep.google.com/")
+new.append("https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&ec=asw-drive-hero-goto&ifkv=AS5LTARnSfrrHGENO20pgrR0B1yuSXJC1173OOwXpjxD2p2G3O-rTgg8Vk66Rlan5Eykn2JfO8Oc0g&ltmpl=drive&passive=true&service=wise&usp=gtd&utm_campaign=web&utm_content=gotodrive&utm_medium=button&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S823815728%3A1717671124532768&ddm=0")
 chrome_operations = []
 firefox_operations = []
 chrome_operations.append([key,[["esc",1,0,0]]])
@@ -93,10 +93,10 @@ chrome_operations = []
 firefox_operations = []
 #chrome_operations.append([copy_paste2,["media788788",1]])
 chrome_operations.append([cf_et_new,["username",1,1,1]])
-chrome_operations.append([copy_paste2,["savant78",1]])
+chrome_operations.append([copy_paste2,["idk-dude22",1]])
 #chrome_operations.append([copy_paste2,["media788788",1]])
 chrome_operations.append([key,[["tab",1,0,0]]])
-chrome_operations.append([copy_paste2,["savant77",1]])
+chrome_operations.append([copy_paste2,["idkidkidk",1]])
 chrome_operations.append([key,[["enter",1,0,0]]])
 firefox_operations.append([])
 new.append(chrome_operations)
