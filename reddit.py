@@ -1,7 +1,8 @@
 exec(open('util.py').read())
 def reddit(inp):
 	#shutil.rmtree()
-	directory = "C:\\Users\\-\\AppData"
+	#directory = "C:\\Users\\-\\AppData"
+	directory = "C:\\Users\\--\\AppData"
 	folders = os.listdir(directory)
 	for a,val in enumerate(folders):
 		specific = directory+"\\"+val
