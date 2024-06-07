@@ -86,7 +86,7 @@ def open2(inp):
 				for c,valc in enumerate(append_operations):
 					run.append(valc)
 				break	
-		#run.append([hold_button,["ctrl","pagedown",1,0]])
+		run.append([hold_button,["ctrl","pagedown",1,0]])
 	pri(run)
 	#end()
 	for a,val in enumerate(run):
