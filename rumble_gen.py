@@ -76,6 +76,8 @@ def rumble_gen(inp):
 	new.append("https://rumble.com/embed/v4r928i/?pub=3i4h9q")
 	rumble_urls.append(new)
 
+	#<iframe id="georgia1" src="https://rumble.com/embed/v4r928i/?pub=3i4h9q"></iframe>
+
 	new = []
 	new.append("georgia")
 	new.append("??")
@@ -161,7 +163,7 @@ def rumble_gen(inp):
 	for a,val in enumerate(new_array):
 		more_code = ""
 		more_code = more_code+"""
-		
+
 		"""
 
 	end()
