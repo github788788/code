@@ -1,5 +1,57 @@
 exec(open('util.py').read())
 def rumble_gen(inp):
+
+
+	vid_code = """
+
+	<div class="gjs-grid-column">
+	        <iframe id="__iframe_id__" src="https://rumble.com/embed/__vid_code__/?pub=3i4h9q"></iframe>
+	</div>
+
+
+	"""
+
+	row_code = """
+
+	        <div id="__state_row__" class="gjs-grid-row">
+	                <div id="__state_col__" class="gjs-grid-column">
+	                        <div id="__state_name__">__state__</div>
+	                </div>
+	                <div id="__vid_col__" class="gjs-grid-column">
+	                        <div id="__vid_row__" class="gjs-grid-row">
+
+									<div class="gjs-grid-column">
+									        <iframe id="__iframe_id__" src="https://rumble.com/embed/__vid_code__/?pub=3i4h9q"></iframe>
+									</div>
+
+									<div class="gjs-grid-column">
+									        <iframe id="__iframe_id__" src="https://rumble.com/embed/__vid_code__/?pub=3i4h9q"></iframe>
+									</div>
+									
+										                                <div class="gjs-grid-column">
+	                                        <div id="irpeg"><iframe id="__vid3__"
+	                                                        src="https://rumble.com/embed/__vid3_code__/?pub=3i4h9q"
+	                                                        id="__vid3__"></iframe></div>
+	                                </div>
+	                        </div>
+	                </div>
+	        </div>
+	"""
+	"""
+	new_code = row_code
+	new_code = new_code.replace("__state_row__",valb[0]+"_row_"+str(b))
+	new_code = new_code.replace("__state_row__",valb[0]+"_row_"+str(b))
+	new_code = new_code.replace("__state__",valb[0])
+	new_code = new_code.replace("__state_row__",valb[0]+"_row_"+str(b))
+	"""
+	css_code = """
+
+	        #__vid_id__ {
+	                width: 400px;
+	                height: 300px;
+	        }
+	"""
+
 	rumble_urls = []
 
 	#<iframe src="https://rumble.com/embed/v4spnbx/?pub=3i4h9q"></iframe>
@@ -47,6 +99,27 @@ def rumble_gen(inp):
 	rumble_urls.append(new)
 
 	new = []
+	new.append("nevada")
+	new.append("??")
+	new.append("130 thousand illegal votes were cast in Nevada")
+	new.append("https://rumble.com/embed/v4spnbx/?pub=3i4h9q")
+	rumble_urls.append(new)
+
+	new = []
+	new.append("__state__")
+	new.append("__person__")
+	new.append("__description__")
+	new.append("__rumble_embed_url__")
+	rumble_urls.append(new)
+
+	new = []
+	new.append("__state__")
+	new.append("__person__")
+	new.append("__description__")
+	new.append("__rumble_embed_url__")
+	rumble_urls.append(new)
+
+	new = []
 	new.append("__state__")
 	new.append("__person__")
 	new.append("__description__")
@@ -61,37 +134,38 @@ def rumble_gen(inp):
 	rumble_urls.append(new)
 
 
-	base_html = """
+	#rumble_urls.sort()
+	"""
+	for a,val in enumerate(rumble_urls):
+		new_code = row_code
+		state = val[0]
+		new_code.replace("__state_row__",state+"row")
+	"""
 
-        <div id="__new_row__" class="gjs-grid-row">
-                <div id="ies45" class="gjs-grid-column">
-                        <div id="it87s" class="gjs-grid-row">
-                                <div id="i9l46" class="gjs-grid-column">
-                                        <div id="i0joh">arizona</div>
-                                </div>
-                        </div>
-                </div>
-                <div id="ihbee" class="gjs-grid-column">
-                        <div id="iitt2" class="gjs-grid-row">
-                                <div class="gjs-grid-column">
-                                        <div id="iocj3"><iframe frameborder="0"
-                                                        src="https://rumble.com/embed/v4qvth5/?pub=3i4h9q"
-                                                        id="arizona1-2"></iframe></div>
-                                </div>
-                                <div id="i2owo" class="gjs-grid-column">
-                                        <div id="i6lauy"><iframe frameborder="0"
-                                                        src="https://rumble.com/embed/v4qvth5/?pub=3i4h9q"
-                                                        id="arizona2"></iframe></div>
-                                </div>
-                                <div class="gjs-grid-column">
-                                        <div id="imt6xh"><iframe frameborder="0"
-                                                        src="https://rumble.com/embed/v4qvth5/?pub=3i4h9q"
-                                                        id="arizona3"></iframe></div>
-                                </div>
-                        </div>
-                </div>
-        </div>
-        """
+	new_array = []
+	for a,val in enumerate(rumble_urls):
+		check = val[0]
+		if "__state__" in check:
+			continue
+		match = 0
+		for b,valb in enumerate(new_array):
+			if check in valb[0]:
+				match=1
+				valb.append(val)
+				break
+		if match==0:
+			new_array.append([check,val])
+
+	pri(new_array)
+
+	for a,val in enumerate(new_array):
+		more_code = ""
+		more_code = more_code+"""
+		
+		"""
+
+	end()
+
 
 	
 inp = []
