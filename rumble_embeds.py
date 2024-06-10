@@ -52,6 +52,12 @@ current_state_row = 1
 new_row = 3
 appends = 0
 
+codes = []
+codes.append(["new_row",])
+new_row = "\n\t"
+end_row = "</div>"
+
+
 for a,val in enumerate(array):
 	check_state = val[0]
 	if check_state!=current_state:
