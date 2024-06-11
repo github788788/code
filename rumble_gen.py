@@ -65,13 +65,50 @@ def rumble_gen(inp):
 	new = []
 	new.append("arizona")
 	new.append("lankford")
+	new.append("us senator")
 	new.append("130 thousand illegal votes were cast in Nevada")
 	new.append("https://rumble.com/embed/v4spnbx/?pub=3i4h9q")
+	new.append("https://rumble.com/v4v6n4l-nevada-130-thousand-illegal-votes-were-cast-in-nevada.html")
+	#<a href="https://rumble.com/embed/v4spnbx/?pub=3i4h9q">Link = "https://rumble.com/embed/v4spnbx/?pub=3i4h9q"</a>
 	rumble_urls.append(new)
 
 	new = []
 	new.append("georgia")
 	new.append("Joseph Rossi")
+	description = """
+	Georgia Recount Violated Georgia Election Law
+	"""
+	new.append(description)
+	embed_url = """
+	https://rumble.com/embed/v4qyb7l/?pub=3i4h9q
+	
+	"""
+	new.append(embed_url)
+	rumble_url = """
+	__rumble_url__
+	"""
+	new.append(rumble_url)
+	rumble_urls.append(new)
+
+	new = []
+	new.append("arizona")
+	new.append("Abe Hamadeh")
+	description = """
+	Georgia Recount Violated Georgia Election Law
+	"""
+	new.append(description)
+	embed_url = """
+	https://rumble.com/embed/v4qyb7l/?pub=3i4h9q
+	
+	"""
+	new.append(embed_url)
+	rumble_url = """
+	__rumble_url__
+	"""
+	new.append(rumble_url)
+
+
+
 	new.append("Georgia Recount Violated Georgia Election Law")
 	new.append("https://rumble.com/embed/v4r928i/?pub=3i4h9q")
 	rumble_urls.append(new)
@@ -88,8 +125,13 @@ def rumble_gen(inp):
 	new = []
 	new.append("michigan")
 	new.append("??")
-	new.append("Van Drops of Ballots in Middle of Night")
-	new.append("https://rumble.com/embed/v4qyb7l/?pub=3i4h9q")
+	description = """
+	Van Drops of Ballots in Middle of Night
+	"""
+	new.append(description)
+	embed_url = """
+	https://rumble.com/embed/v4qyb7l/?pub=3i4h9q
+	"""
 	rumble_urls.append(new)
 
 	new = []
