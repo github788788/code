@@ -23,7 +23,7 @@ def rumble_gen2(inp):
 	new.append("Jim Runestad")
 	new.append("(R) Michigan State Senator")
 	new.append("Explanation of Voter Michigan Fraud")
-	new.append("https://rumble.com/embed/v4spnbx/?pub=3i4h9q")
+	new.append("https://rumble.com/embed/v4qvtai/?pub=3i4h9q")
 	new.append("https://rumble.com/embed/v4qvtai/?pub=3i4h9q")
 	documentation.append(new)
 	new = []
@@ -71,13 +71,22 @@ def rumble_gen2(inp):
 		<div id="
 		"""+state+"-"+str(state_row)+"""
 		" class="gjs-grid-row">\n\t\t<div id="
-		"""+state+"-col-header"+"""
-		class="gjs-grid-column">
-		"""
-		#for b,valb in enumerate(val):
-		#	final_html = final_html+
+		"""+state+"-col-header"+""""
+		class="gjs-grid-column"><div id="
+		"""+state+"-title"+"""
+		">"""+state+"\n"+"</div></div>"
+		for b,valb in enumerate(val):
+			try:
+				embed_url= valb[4]
+			except:
+				continue
+			final_html = final_html+"""
+			<iframe id="arizona1" src="
+			"""+embed_url+"""
+			"></iframe>
+			"""
 
-		final_html = final_html+"</div></div>"
+		final_html = final_html+"</div>"
 	final_html = final_html+"\n</body></html>"
 	print(final_html)
 inp = []
