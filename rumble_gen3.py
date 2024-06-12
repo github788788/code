@@ -41,12 +41,12 @@ def rumble_gen2(inp):
 	  """
 	documentation = []
 	new = []
-	new.append("__state__")
+	new.append("Arizona")
 	new.append("__person__")
-	new.append("__person_position__")
-	new.append("__description__")
-	new.append("__embed_url__")
-	new.append("__rumble_url__")
+	new.append("Arizona Senate hearing on Election Audit in Maricopa County")
+	new.append("74,000 Arizona ballots have no record of being sent out")
+	new.append("https://rumble.com/embed/v4ywstj/?pub=3i4h9q")
+	new.append("https://rumble.com/v5191sm-arizona-74000-arizona-ballots-have-not-record-of-being-sent-out.html")
 	documentation.append(new)
 	new = []
 	new.append("Nevada")
@@ -68,7 +68,7 @@ def rumble_gen2(inp):
 	new.append("Arizona")
 	new.append("??")
 	new.append("??")
-	new.append("Arizona Explanation of Voter Fraud")
+	new.append("Explanation of Voter Fraud in Arizona")
 	new.append("https://rumble.com/embed/v4qvth5/?pub=3i4h9q")
 	new.append("https://rumble.com/v4tdnz8-arizona-explanation-of-voter-fraud.html")
 	documentation.append(new)
@@ -91,7 +91,7 @@ def rumble_gen2(inp):
 	new = []
 	new.append("__state__")
 	new.append("__person__")
-	new.append("__person_position__")
+	new.append("__position__")
 	new.append("__description__")
 	new.append("__embed_url__")
 	new.append("__rumble_url__")
@@ -99,7 +99,7 @@ def rumble_gen2(inp):
 	new = []
 	new.append("Arizona")
 	new.append("__person__")
-	new.append("__person_position__")
+	new.append("__position__")
 	new.append("10% of Arizona voters did not have their identities verified")
 	new.append("__embed_url__")
 	new.append("__rumble_url__")
@@ -107,7 +107,7 @@ def rumble_gen2(inp):
 	new = []
 	new.append("Michigan")
 	new.append("__person__")
-	new.append("__person_position__")
+	new.append("Michigan Oversight Committee")
 	new.append("17,000 dead people voted in Michigan")
 	new.append("https://rumble.com/embed/v4ywlmu/?pub=3i4h9q")
 	new.append("https://rumble.com/v518ulx-michigan-17000-dead-people-receive-mail-in-ballots.html")
@@ -115,15 +115,15 @@ def rumble_gen2(inp):
 	new = []
 	new.append("Michigan")
 	new.append("__person__")
-	new.append("__person_position__")
-	new.append("Van Drops off hundreds of thousands of ballts at 4 AM on election night")
+	new.append("__position__")
+	new.append("Van Drops off hundreds of thousands of ballots at 4 AM on election night")
 	new.append("https://rumble.com/embed/v4qyb7l/?pub=3i4h9q")
 	new.append("https://rumble.com/v4tg5ou-michigan-2020-electon-van-drops-of-ballots-in-middle-of-night.html")
 	documentation.append(new)
 	new = []
 	new.append("__state__")
 	new.append("__person__")
-	new.append("__person_position__")
+	new.append("__position__")
 	new.append("__description__")
 	new.append("__embed_url__")
 	new.append("__rumble_url__")
@@ -131,7 +131,7 @@ def rumble_gen2(inp):
 	new = []
 	new.append("__state__")
 	new.append("__person__")
-	new.append("__person_position__")
+	new.append("__position__")
 	new.append("__description__")
 	new.append("__embed_url__")
 	new.append("__rumble_url__")
@@ -204,9 +204,14 @@ def rumble_gen2(inp):
 			col = col+1
 			final_html = final_html+gen(["div",state+"-row"+str(row)+"-col"+str(col),"gjs-grid-column"])
 			final_html = final_html+"<iframe id=\""+iframe_id+"\" src=\""+embed_url+"\"></iframe><br>"
-			final_html = final_html+description+"<br>"
-			final_html = final_html+person+"-"+position+"<br>"
-			final_html = final_html+"<a href=\""+rumble_url+"\">Link = "+rumble_url+"</a>"
+			final_html = final_html+"<br>"+description
+			if "__person__" not in person and "?" not in person:
+				final_html = final_html+"<br>"+person
+				if "__position__" not in position and "?" not in position:
+					final_html = final_html+" - "+position
+			#final_html = final_html+person+"-"+position+"<br>"
+			#final_html = final_html+description+"<br>"
+			final_html = final_html+"<br>Link = <a href=\""+rumble_url+"\">"+rumble_url+"</a>"
 			final_html = final_html+"</div>\n"
 			style = style+"\n#"+iframe_id+" {width: 400px;height: 300px;}"
 		final_html = final_html+"</div>\n"
