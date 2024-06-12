@@ -61,33 +61,57 @@ def rumble_gen2(inp):
 
 	pri(documentation2)
 	#end()
-	final_html = """
-	<html><body id="body_main">\n\t
-	"""
+	final_html = "<html><body id=\"body_main\">\n"
+	style = "<style>\n"
+	apos = "\""		
+	def gen(inputs):
+		#code = div(["div","arizona-1","gjs-grid-row"])
+		element = inputs[0]
+		iden = inputs[1]
+		clas = inputs[2]
+		text = "<"+element+" class\""+clas+"\" id=\""+iden+"\">\n"
+		return text
+
+
 	for a,val in enumerate(documentation2):
-		state_row = 1
+		row = 1
+		col = 1
 		state = val[0]
-		final_html = final_html+"""
-		<div id="
-		"""+state+"-"+str(state_row)+"""
-		" class="gjs-grid-row">\n\t\t<div id="
-		"""+state+"-col-header"+""""
-		class="gjs-grid-column"><div id="
-		"""+state+"-title"+"""
-		">"""+state+"\n"+"</div></div>"
-		for b,valb in enumerate(val):
+		final_html = final_html+gen(["div",state+"-row-"+str(row),"gjs-grid-row"])
+		final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
+		#final_html = final_html+gen(["div",state+"-eh","gjs-grid-column"])
+		final_html = final_html+state+"</div>"
+		final_html = final_html+gen(["div",state+"-row2-"+str(row),"gjs-grid-row"])
+		col = col+1
+		final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
+		for b in range(1,len(val)):
+			valb = val[b]
 			try:
 				embed_url= valb[4]
 			except:
 				continue
-			final_html = final_html+"""
-			<iframe id="arizona1" src="
-			"""+embed_url+"""
-			"></iframe>
-			"""
+			iframe_id = state+str(b)
+			col = col+1
+			#final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
+			final_html = final_html+"<iframe id=\""+iframe_id+"\" src=\""+embed_url+"\"></iframe>\n"
+			final_html = final_html+"</div></div></div>"
+			style = style+"\n#"+iframe_id+" {width: 400px;height: 300px;}"
 
-		final_html = final_html+"</div>"
+	style =style+"\n</style>"
+	final_html = final_html+"</body>\n"+style
+	final_html = final_html
 	final_html = final_html+"\n</body></html>"
 	print(final_html)
+	out_file = "election5.html"
+	write_data([out_file,final_html])
+	chrome_location = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+	file = "file:///C:/Users/--/code/"+out_file
+	source = "view-source:file:///C:/Users/--/code/"+out_file	
+	subprocess.Popen([chrome_location, file])
+	time.sleep(1)
+	hold_button(["ctrl","u",1,1])
+	#subprocess.Popen([chrome_location, source])
+
+
 inp = []
 rumble_gen2(inp)
