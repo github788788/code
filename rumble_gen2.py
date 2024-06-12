@@ -27,12 +27,28 @@ def rumble_gen2(inp):
 	new.append("https://rumble.com/embed/v4qvtai/?pub=3i4h9q")
 	documentation.append(new)
 	new = []
-	new.append("__state__")
-	new.append("__person__")
-	new.append("__person_position__")
-	new.append("__description__")
-	new.append("__embed_url__")
-	new.append("__rumble_url__")
+	new.append("arizona")
+	new.append("??")
+	new.append("??")
+	new.append("Explanation of Voter Fraud")
+	new.append("https://rumble.com/embed/v4qvth5/?pub=3i4h9q")
+	new.append("https://rumble.com/v4tdnz8-arizona-explanation-of-voter-fraud.html")
+	documentation.append(new)
+	new = []
+	new.append("georgia")
+	new.append("??")
+	new.append("??")
+	new.append("Over 300,000 ballot images lost Georgia 2020 recount (Fulton county)")
+	new.append("https://rumble.com/embed/v4rayvc/?pub=3i4h9q")
+	new.append("https://rumble.com/v4tst7l-over-300000-ballot-images-lost-georgia-2020-recount-fulton-county.html")
+	documentation.append(new)
+	new = []
+	new.append("georgia")
+	new.append("Joseph Rossi")
+	new.append("??")
+	new.append("Georgia Recount Violated Georgia Election Law")
+	new.append("https://rumble.com/embed/v4r928i/?pub=3i4h9q")
+	new.append("https://rumble.com/v4tqwl6-georgia-joseph-rossi-georgia-recount-violated-georgia-election-law.html")
 	documentation.append(new)
 	new = []
 	new.append("__state__")
@@ -69,21 +85,21 @@ def rumble_gen2(inp):
 		element = inputs[0]
 		iden = inputs[1]
 		clas = inputs[2]
-		text = "<"+element+" class\""+clas+"\" id=\""+iden+"\">\n"
+		text = "<"+element+" class=\""+clas+"\" id=\""+iden+"\">\n"
 		return text
-
-
 	for a,val in enumerate(documentation2):
 		row = 1
 		col = 1
 		state = val[0]
 		final_html = final_html+gen(["div",state+"-row-"+str(row),"gjs-grid-row"])
 		final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
+		final_html = final_html+gen(["div",state+"-title-row"+str(row),"gjs-grid-row"])
+		final_html = final_html+gen(["div",state+"-title-col"+str(col),"gjs-grid-column"])
 		#final_html = final_html+gen(["div",state+"-eh","gjs-grid-column"])
-		final_html = final_html+state+"</div>"
-		final_html = final_html+gen(["div",state+"-row2-"+str(row),"gjs-grid-row"])
-		col = col+1
-		final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
+		final_html = final_html+"<div>"+state+"</div></div></div></div>\n"
+		#final_html = final_html+gen(["div",state+"-row2-"+str(row),"gjs-grid-row"])
+		#col = col+1
+		#final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
 		for b in range(1,len(val)):
 			valb = val[b]
 			try:
@@ -92,15 +108,19 @@ def rumble_gen2(inp):
 				continue
 			iframe_id = state+str(b)
 			col = col+1
+			if b==1:
 			#final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
+				final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
+				final_html = final_html+gen(["div",state+"-media-row-"+str(row),"gjs-grid-row"])
+			final_html = final_html+gen(["div",state+"-col-media-"+str(col),"gjs-grid-column"])
 			final_html = final_html+"<iframe id=\""+iframe_id+"\" src=\""+embed_url+"\"></iframe>\n"
-			final_html = final_html+"</div></div></div>"
+			final_html = final_html+"</div>"
 			style = style+"\n#"+iframe_id+" {width: 400px;height: 300px;}"
-
+		final_html = final_html+state+"</div></div></div>\n"
 	style =style+"\n</style>"
 	final_html = final_html+"</body>\n"+style
 	final_html = final_html
-	final_html = final_html+"\n</body></html>"
+	final_html = final_html+"\n</html>"
 	print(final_html)
 	out_file = "election5.html"
 	write_data([out_file,final_html])
