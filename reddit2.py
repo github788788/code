@@ -37,8 +37,8 @@ def reddit2(inp):
 	for a,val in enumerate(to_install):
 		file_to_install = download_directory+"\\"+val
 		start_file([file_to_install,0])
-	#see what cookies are in chrome = 
-	#see what cookies are in firefox = 
+	#see what cookies are in chrome = chrome://settings/siteData
+	#see what cookies are in firefox = about:preferences#privacy  ..then "manage data"
 	
 inp = []
 reddit2(inp)
