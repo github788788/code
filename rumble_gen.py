@@ -144,16 +144,16 @@ def rumble_gen(inp):
 
 	new = []
 	new.append("nevada")
-	new.append("??")
+	new.append("Lankford")
 	new.append("130 thousand illegal votes were cast in Nevada")
 	new.append("https://rumble.com/embed/v4spnbx/?pub=3i4h9q")
 	rumble_urls.append(new)
 
 	new = []
-	new.append("__state__")
-	new.append("__person__")
-	new.append("__description__")
-	new.append("__rumble_embed_url__")
+	new.append("arizona")
+	new.append("??")
+	new.append("Explanation of Voter Fraud")
+	new.append("https://rumble.com/embed/v4qvth5/?pub=3i4h9q")
 	rumble_urls.append(new)
 
 	new = []
