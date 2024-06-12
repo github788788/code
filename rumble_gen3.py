@@ -1,85 +1,5 @@
 exec(open('util.py').read())
 def rumble_gen2(inp):
-	documentation = []
-
-	new = []
-	new.append("__state__")
-	new.append("__person__")
-	new.append("__person_position__")
-	new.append("__description__")
-	new.append("__embed_url__")
-	new.append("__rumble_url__")
-	documentation.append(new)
-	new = []
-	new.append("nevada")
-	new.append("lankford")
-	new.append("us senator")
-	new.append("130 thousand illegal votes were cast in Nevada")
-	new.append("https://rumble.com/embed/v4spnbx/?pub=3i4h9q")
-	new.append("https://rumble.com/v4v6n4l-nevada-130-thousand-illegal-votes-were-cast-in-nevada.html")
-	documentation.append(new)
-	new = []
-	new.append("michigan")
-	new.append("Jim Runestad")
-	new.append("(R) Michigan State Senator")
-	new.append("Explanation of Voter Michigan Fraud")
-	new.append("https://rumble.com/embed/v4qvtai/?pub=3i4h9q")
-	new.append("https://rumble.com/embed/v4qvtai/?pub=3i4h9q")
-	documentation.append(new)
-	new = []
-	new.append("arizona")
-	new.append("??")
-	new.append("??")
-	new.append("Explanation of Voter Fraud")
-	new.append("https://rumble.com/embed/v4qvth5/?pub=3i4h9q")
-	new.append("https://rumble.com/v4tdnz8-arizona-explanation-of-voter-fraud.html")
-	documentation.append(new)
-	new = []
-	new.append("georgia")
-	new.append("??")
-	new.append("??")
-	new.append("Over 300,000 ballot images lost Georgia 2020 recount (Fulton county)")
-	new.append("https://rumble.com/embed/v4rayvc/?pub=3i4h9q")
-	new.append("https://rumble.com/v4tst7l-over-300000-ballot-images-lost-georgia-2020-recount-fulton-county.html")
-	documentation.append(new)
-	new = []
-	new.append("georgia")
-	new.append("Joseph Rossi")
-	new.append("??")
-	new.append("Georgia Recount Violated Georgia Election Law")
-	new.append("https://rumble.com/embed/v4r928i/?pub=3i4h9q")
-	new.append("https://rumble.com/v4tqwl6-georgia-joseph-rossi-georgia-recount-violated-georgia-election-law.html")
-	documentation.append(new)
-	new = []
-	new.append("__state__")
-	new.append("__person__")
-	new.append("__person_position__")
-	new.append("__description__")
-	new.append("__embed_url__")
-	new.append("__rumble_url__")
-	documentation.append(new)
-
-	documentation.sort()
-
-	documentation2 = []
-	for a,val in enumerate(documentation):
-		state_check = val[0]
-		if "__state__" in state_check:
-			continue
-		match = 0
-		for b in range(0,len(documentation2)):
-			valb = documentation2[b]
-			state_check2 = valb[0]
-			if state_check==state_check2: 
-				match = 1
-				documentation2[b].append(val)
-				break
-		if match==0:
-			documentation2.append([state_check,val])
-
-	pri(documentation2)
-	#end()
-	final_html = "<html><body id=\"body_main\">\n"
 	style = """
 	<style>
 	  * {
@@ -88,6 +8,7 @@ def rumble_gen2(inp):
 
 	  body {
 	    margin: 0;
+	    font-size: 20px;
 	  }
 
 	  * {
@@ -116,11 +37,143 @@ def rumble_gen2(inp):
 	    .gjs-grid-row {
 	      flex-direction: column;
 	    }
-	  }\n"""
-	#</style>
+	  }\n
+	  """
+	documentation = []
+	new = []
+	new.append("__state__")
+	new.append("__person__")
+	new.append("__person_position__")
+	new.append("__description__")
+	new.append("__embed_url__")
+	new.append("__rumble_url__")
+	documentation.append(new)
+	new = []
+	new.append("Nevada")
+	new.append("Lankford")
+	new.append("(R) Oklahoma Senator")
+	new.append("130 thousand illegal votes were cast in Nevada")
+	new.append("https://rumble.com/embed/v4spnbx/?pub=3i4h9q")
+	new.append("https://rumble.com/v4v6n4l-nevada-130-thousand-illegal-votes-were-cast-in-nevada.html")
+	documentation.append(new)
+	new = []
+	new.append("Michigan")
+	new.append("Jim Runestad")
+	new.append("(R) Michigan State Senator")
+	new.append("Explanation of Voter Michigan Fraud")
+	new.append("https://rumble.com/embed/v4qvtai/?pub=3i4h9q")
+	new.append("https://rumble.com/embed/v4qvtai/?pub=3i4h9q")
+	documentation.append(new)
+	new = []
+	new.append("Arizona")
+	new.append("??")
+	new.append("??")
+	new.append("Arizona Explanation of Voter Fraud")
+	new.append("https://rumble.com/embed/v4qvth5/?pub=3i4h9q")
+	new.append("https://rumble.com/v4tdnz8-arizona-explanation-of-voter-fraud.html")
+	documentation.append(new)
+	new = []
+	new.append("Georgia")
+	new.append("??")
+	new.append("??")
+	new.append("Over 300,000 ballot images lost Georgia 2020 recount (Fulton county)")
+	new.append("https://rumble.com/embed/v4rayvc/?pub=3i4h9q")
+	new.append("https://rumble.com/v4tst7l-over-300000-ballot-images-lost-georgia-2020-recount-fulton-county.html")
+	documentation.append(new)
+	new = []
+	new.append("Georgia")
+	new.append("Joseph Rossi")
+	new.append("Elections expert")
+	new.append("Georgia Recount Violated Georgia Election Law")
+	new.append("https://rumble.com/embed/v4r928i/?pub=3i4h9q")
+	new.append("https://rumble.com/v4tqwl6-georgia-joseph-rossi-georgia-recount-violated-georgia-election-law.html")
+	documentation.append(new)
+	new = []
+	new.append("__state__")
+	new.append("__person__")
+	new.append("__person_position__")
+	new.append("__description__")
+	new.append("__embed_url__")
+	new.append("__rumble_url__")
+	documentation.append(new)
+	new = []
+	new.append("Arizona")
+	new.append("__person__")
+	new.append("__person_position__")
+	new.append("10% of Arizona voters did not have their identities verified")
+	new.append("__embed_url__")
+	new.append("__rumble_url__")
+	documentation.append(new)
+	new = []
+	new.append("Michigan")
+	new.append("__person__")
+	new.append("__person_position__")
+	new.append("17,000 dead people voted in Michigan")
+	new.append("https://rumble.com/embed/v4ywlmu/?pub=3i4h9q")
+	new.append("https://rumble.com/v518ulx-michigan-17000-dead-people-receive-mail-in-ballots.html")
+	documentation.append(new)
+	new = []
+	new.append("Michigan")
+	new.append("__person__")
+	new.append("__person_position__")
+	new.append("Van Drops off hundreds of thousands of ballts at 4 AM on election night")
+	new.append("https://rumble.com/embed/v4qyb7l/?pub=3i4h9q")
+	new.append("https://rumble.com/v4tg5ou-michigan-2020-electon-van-drops-of-ballots-in-middle-of-night.html")
+	documentation.append(new)
+	new = []
+	new.append("__state__")
+	new.append("__person__")
+	new.append("__person_position__")
+	new.append("__description__")
+	new.append("__embed_url__")
+	new.append("__rumble_url__")
+	documentation.append(new)
+	new = []
+	new.append("__state__")
+	new.append("__person__")
+	new.append("__person_position__")
+	new.append("__description__")
+	new.append("__embed_url__")
+	new.append("__rumble_url__")
+	documentation.append(new)
+
+	documentation.sort()
+	for a,val in enumerate(documentation):
+		val[0]=val[0].capitalize()
 
 
-	apos = "\""		
+	documentation2 = []
+	for a,val in enumerate(documentation):
+		state_check = val[0]
+		if "__state__" in state_check:
+			continue
+		match = 0
+		for b in range(0,len(documentation2)):
+			valb = documentation2[b]
+			state_check2 = valb[0]
+			if state_check==state_check2: 
+				match = 1
+				documentation2[b].append(val)
+				break
+		if match==0:
+			documentation2.append([state_check,val])
+
+	pri(documentation2)
+	#end()
+	final_html = "<html><body id=\"body_main\">\n"
+	final_html = final_html+"""
+
+<div id="first_row" class="gjs-grid-row">
+        <div class="gjs-grid-column">
+                <div id="ivusa">
+               	THROW THE POLITICIANS IN PRISON!!
+         		<br><br>
+         		Look at all the crap the politicans (Democrats+RINOS) did the in 6 swing states to steal your election in 2020 from you. Look at it!
+         		<br><br>
+</div>
+        </div>
+</div>
+	"""
 	def gen(inputs):
 		#code = div(["div","arizona-1","gjs-grid-row"])
 		element = inputs[0]
@@ -128,6 +181,9 @@ def rumble_gen2(inp):
 		clas = inputs[2]
 		text = "<"+element+" class=\""+clas+"\" id=\""+iden+"\">\n"
 		return text
+
+
+
 	for a,val in enumerate(documentation2):
 		row = 1
 		col = 1
@@ -137,9 +193,8 @@ def rumble_gen2(inp):
 		final_html = final_html+state+"</div>\n"
 		for b in range(1,len(val)):
 			valb = val[b]
-			try:
-				embed_url= valb[4]
-			except:
+			embed_url= valb[4]
+			if "__embed_url__" in embed_url:
 				continue
 			person = valb[1]
 			position = valb[2]
@@ -148,18 +203,15 @@ def rumble_gen2(inp):
 			iframe_id = state+str(b)
 			col = col+1
 			final_html = final_html+gen(["div",state+"-row"+str(row)+"-col"+str(col),"gjs-grid-column"])
-			final_html = final_html+"<iframe id=\""+iframe_id+"\" src=\""+embed_url+"\"></iframe>"
-			final_html = final_html+"<br>"+person+"-"+position+"<br>"
+			final_html = final_html+"<iframe id=\""+iframe_id+"\" src=\""+embed_url+"\"></iframe><br>"
 			final_html = final_html+description+"<br>"
-			final_html = final_html+"Link = "+rumble_url
-
+			final_html = final_html+person+"-"+position+"<br>"
+			final_html = final_html+"<a href=\""+rumble_url+"\">Link = "+rumble_url+"</a>"
 			final_html = final_html+"</div>\n"
-			#final_html = final_html+"</div>"
 			style = style+"\n#"+iframe_id+" {width: 400px;height: 300px;}"
 		final_html = final_html+"</div>\n"
 	style =style+"\n</style>"
 	final_html = final_html+"</body>\n"+style
-	#final_html = final_html
 	final_html = final_html+"\n</html>"
 	print(final_html)
 	out_file = "election5.html"
@@ -168,10 +220,22 @@ def rumble_gen2(inp):
 	file = "file:///C:/Users/--/code/"+out_file
 	source = "view-source:file:///C:/Users/--/code/"+out_file	
 	subprocess.Popen([chrome_location, file])
-	time.sleep(1)
-	hold_button(["ctrl","u",1,1])
-	#subprocess.Popen([chrome_location, source])
-
+	#time.sleep(1)
+	#hold_button(["ctrl","u",1,1])
+	
 
 inp = []
 rumble_gen2(inp)
+
+
+
+"""
+                This website exists to show you call the crap the Democrats did in 2020 to fraud
+                        the election. 
+                        The Democrats are criminals and put their asses in jail, every last one of them, for the
+                        rest of their lives. 
+                        They stole your election (your country?) and now are trying to eradicate what the WW2
+                        generation fought and died
+                        for.  ADX Florence for the Democrats for life.
+
+                        """
