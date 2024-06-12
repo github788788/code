@@ -80,7 +80,46 @@ def rumble_gen2(inp):
 	pri(documentation2)
 	#end()
 	final_html = "<html><body id=\"body_main\">\n"
-	style = "<style>\n"
+	style = """
+	<style>
+	  * {
+	    box-sizing: border-box;
+	  }
+
+	  body {
+	    margin: 0;
+	  }
+
+	  * {
+	    box-sizing: border-box;
+	  }
+
+	  body {
+	    margin: 0;
+	  }
+
+	  .gjs-grid-column {
+	    flex: 1 1 0%;
+	    padding: 5px 0;
+	  }
+
+	  .gjs-grid-row {
+	    display: flex;
+	    justify-content: flex-start;
+	    align-items: stretch;
+	    flex-direction: row;
+	    min-height: auto;
+	    padding: 10px 0;
+	  }
+
+	  @media (max-width: 992px) {
+	    .gjs-grid-row {
+	      flex-direction: column;
+	    }
+	  }\n"""
+	#</style>
+
+
 	apos = "\""		
 	def gen(inputs):
 		#code = div(["div","arizona-1","gjs-grid-row"])
@@ -94,7 +133,7 @@ def rumble_gen2(inp):
 		col = 1
 		state = val[0]
 		final_html = final_html+gen(["div",state+"-row-"+str(row),"gjs-grid-row"])
-		final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
+		final_html = final_html+gen(["div",state+"-row"+str(row)+"-col"+str(col),"gjs-grid-column"])
 		final_html = final_html+state+"</div>\n"
 		for b in range(1,len(val)):
 			valb = val[b]
@@ -102,14 +141,19 @@ def rumble_gen2(inp):
 				embed_url= valb[4]
 			except:
 				continue
+			person = valb[1]
+			position = valb[2]
+			description = valb[3]
+			rumble_url = valb[5]
 			iframe_id = state+str(b)
 			col = col+1
-			if b==1:
-				final_html = final_html+gen(["div",state+"-media-column-"+str(row),"gjs-grid-column"])
-				#final_html = final_html+gen(["div",state+"-col-"+str(col),"gjs-grid-column"])
-				final_html = final_html+gen(["div",state+"-media-row-"+str(row),"gjs-grid-row"])
-			final_html = final_html+gen(["div",state+"-col-media-"+str(col),"gjs-grid-column"])
-			final_html = final_html+"<iframe id=\""+iframe_id+"\" src=\""+embed_url+"\"></iframe></div>\n"
+			final_html = final_html+gen(["div",state+"-row"+str(row)+"-col"+str(col),"gjs-grid-column"])
+			final_html = final_html+"<iframe id=\""+iframe_id+"\" src=\""+embed_url+"\"></iframe>"
+			final_html = final_html+"<br>"+person+"-"+position+"<br>"
+			final_html = final_html+description+"<br>"
+			final_html = final_html+"Link = "+rumble_url
+
+			final_html = final_html+"</div>\n"
 			#final_html = final_html+"</div>"
 			style = style+"\n#"+iframe_id+" {width: 400px;height: 300px;}"
 		final_html = final_html+"</div>\n"
