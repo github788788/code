@@ -93,10 +93,10 @@ chrome_operations = []
 firefox_operations = []
 #chrome_operations.append([copy_paste2,["media788788",1]])
 chrome_operations.append([cf_et_new,["username",1,1,1]])
-chrome_operations.append([copy_paste2,["moo468",1]])
+chrome_operations.append([copy_paste2,["desk246",1]])
 #chrome_operations.append([copy_paste2,["media788788",1]])
 chrome_operations.append([key,[["tab",1,0,0]]])
-chrome_operations.append([copy_paste2,["moomoomoo",1]])
+chrome_operations.append([copy_paste2,["desk1234",1]])
 chrome_operations.append([key,[["enter",1,0,0]]])
 firefox_operations.append([])
 new.append(chrome_operations)
