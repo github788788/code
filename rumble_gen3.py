@@ -121,6 +121,14 @@ def rumble_gen2(inp):
 	new.append("https://rumble.com/v4tg5ou-michigan-2020-electon-van-drops-of-ballots-in-middle-of-night.html")
 	documentation.append(new)
 	new = []
+	new.append("Pennsylvania")
+	new.append("USPS worker")
+	new.append("__position__")
+	new.append("USPS worker testifies he drove 288,000 thousand ballots from New York to Pennsylvania")
+	new.append("https://rumble.com/embed/v4ywzc6/?pub=3i4h9q")
+	new.append("https://rumble.com/v5198b9-pennsylvania-usps-worker-testifies-he-drove-288000-thousand-ballots-from-ne.html")
+	documentation.append(new)
+	new = []
 	new.append("__state__")
 	new.append("__person__")
 	new.append("__position__")
@@ -135,6 +143,22 @@ def rumble_gen2(inp):
 	new.append("__description__")
 	new.append("__embed_url__")
 	new.append("__rumble_url__")
+	documentation.append(new)
+	new = []
+	new.append("__state__")
+	new.append("__person__")
+	new.append("__position__")
+	new.append("__description__")
+	new.append("__embed_url__")
+	new.append("__rumble_url__")
+	documentation.append(new)
+	new = []
+	new.append("Arizona")
+	new.append("__person__")
+	new.append("__position__")
+	new.append("Over 500 thousand illegal voters on arizona voter rolls")
+	new.append("https://rumble.com/embed/v4yx0hn/?pub=3i4h9q")
+	new.append("https://rumble.com/v5199gq-arizona-over-500-thousand-illegal-voters-on-arizona-voter-rolls.html")
 	documentation.append(new)
 
 	documentation.sort()
