@@ -195,3 +195,4 @@ new.append(chrome_operations)
 new.append(firefox_operations)
 storage.append(new)
 
+storage.sort()
