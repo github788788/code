@@ -5,22 +5,24 @@ storage = []
 new = []
 new.append("drive")
 new.append("https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&ec=asw-drive-hero-goto&ifkv=AS5LTARnSfrrHGENO20pgrR0B1yuSXJC1173OOwXpjxD2p2G3O-rTgg8Vk66Rlan5Eykn2JfO8Oc0g&ltmpl=drive&passive=true&service=wise&usp=gtd&utm_campaign=web&utm_content=gotodrive&utm_medium=button&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S823815728%3A1717671124532768&ddm=0")
+username = "media788788"
+password = "Medmed1!"
 chrome_operations = []
 firefox_operations = []
 chrome_operations.append([key,[["esc",1,0,0]]])
-chrome_operations.append([copy_paste2,["media788788",1]])
+chrome_operations.append([copy_paste2,[username,1]])
 chrome_operations.append([key,[["esc",1,0,1]]])
 chrome_operations.append([key,[["enter",1,0,5]]])
 chrome_operations.append([key,[["esc",1,0,0]]])
-chrome_operations.append([copy_paste2,["Medmed1!",1]])
+chrome_operations.append([copy_paste2,[password,1]])
 chrome_operations.append([key,[["esc",1,0,1]]])
 chrome_operations.append([key,[["enter",1,0,0]]])
 firefox_operations.append([key,[["esc",1,0,0]]])
-firefox_operations.append([copy_paste2,["media788788",1]])
+firefox_operations.append([copy_paste2,[username,1]])
 firefox_operations.append([key,[["esc",1,0,1]]])
 firefox_operations.append([key,[["enter",1,0,5]]])
 firefox_operations.append([key,[["esc",1,0,0]]])
-firefox_operations.append([copy_paste2,["Medmed1!",1]])
+firefox_operations.append([copy_paste2,[password,1]])
 firefox_operations.append([key,[["esc",1,0,1]]])
 firefox_operations.append([key,[["enter",1,0,0]]])
 new.append(chrome_operations)
@@ -72,15 +74,17 @@ storage.append(new)
 new = []
 new.append("protonmail")
 new.append("https://account.proton.me/mail")
+username = "violin78"
+password = "viovio"
 chrome_operations = []
 firefox_operations = []
-chrome_operations.append([copy_paste2,["violin78",1]])
+chrome_operations.append([copy_paste2,[username,1]])
 chrome_operations.append([key,[["tab",1,0,0]]])
-chrome_operations.append([copy_paste2,["viovio",0]])
+chrome_operations.append([copy_paste2,[password,0]])
 chrome_operations.append([key,[["enter",1,0,0]]])
-firefox_operations.append([copy_paste2,["violin78",1]])
+firefox_operations.append([copy_paste2,[username,1]])
 firefox_operations.append([key,[["tab",1,0,0]]])
-firefox_operations.append([copy_paste2,["viovio",0]])
+firefox_operations.append([copy_paste2,[password,0]])
 firefox_operations.append([key,[["enter",1,0,0]]])
 new.append(chrome_operations)
 new.append(firefox_operations)
@@ -89,14 +93,16 @@ storage.append(new)
 new = []
 new.append("reddit_login")
 new.append("https://old.reddit.com/login/")
+username = "desk246"
+password = "desk1234"
 chrome_operations = []
 firefox_operations = []
-#chrome_operations.append([copy_paste2,["media788788",1]])
+#chrome_operations.append([copy_paste2,[username,1]])
 chrome_operations.append([cf_et_new,["username",1,1,1]])
-chrome_operations.append([copy_paste2,["desk246",1]])
-#chrome_operations.append([copy_paste2,["media788788",1]])
+chrome_operations.append([copy_paste2,[username,1]])
+#chrome_operations.append([copy_paste2,[username,1]])
 chrome_operations.append([key,[["tab",1,0,0]]])
-chrome_operations.append([copy_paste2,["desk1234",1]])
+chrome_operations.append([copy_paste2,[password,1]])
 chrome_operations.append([key,[["enter",1,0,0]]])
 firefox_operations.append([])
 new.append(chrome_operations)
@@ -140,7 +146,7 @@ new.append("messenger")
 new.append("https://www.messenger.com")
 chrome_operations = []
 firefox_operations = []
-#chrome_operations.append([copy_paste2,["media788788",1]])
+#chrome_operations.append([copy_paste2,[username,1]])
 chrome_operations.append([key,[["tab",6,0,1]]])
 chrome_operations.append([copy_paste2,["violin78@protonmail.com",1]])
 chrome_operations.append([key,[["tab",1,0,0]]])
@@ -156,7 +162,7 @@ new.append("chatgpt")
 new.append("https://chatgpt.com/")
 chrome_operations = []
 firefox_operations = []
-#chrome_operations.append([copy_paste2,["media788788",1]])
+#chrome_operations.append([copy_paste2,[username,1]])
 #chrome_operations.append([key,[["enter",1,0,5]]])
 #chrome_operations.append([copy_paste2,["Medmed1!",1]])
 #chrome_operations.append([key,[["enter",1,0,0]]])
