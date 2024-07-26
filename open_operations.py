@@ -21,7 +21,7 @@ firefox_operations.append([key,[["esc",1,0,0]]])
 firefox_operations.append([copy_paste2,[username,1]])
 firefox_operations.append([key,[["esc",1,0,1]]])
 firefox_operations.append([key,[["enter",1,0,5]]])
-firefox_operations.append([key,[["esc",1,0,0]]])
+firefox_operations.append([key,[["esc",1,0,1]]])
 firefox_operations.append([copy_paste2,[password,1]])
 firefox_operations.append([key,[["esc",1,0,1]]])
 firefox_operations.append([key,[["enter",1,0,0]]])
@@ -91,10 +91,21 @@ new.append(firefox_operations)
 storage.append(new)
 
 new = []
-new.append("reddit_login")
-new.append("https://old.reddit.com/login/")
+new.append("reddit_new_notifications")
+new.append("https://www.reddit.com/notifications")
+
+"""
+old login info
 username = "desk246"
 password = "desk1234"
+
+current login info
+email registered = davidssonbob@gmail.com
+email pw = Davdav1!
+"""
+username = "CIA7788"
+password = "mustang1"
+
 chrome_operations = []
 firefox_operations = []
 #chrome_operations.append([copy_paste2,[username,1]])
@@ -110,8 +121,9 @@ new.append(firefox_operations)
 storage.append(new)
 
 new = []
-new.append("reddit_notifications")
-new.append("https://www.reddit.com/notifications")
+new.append("reddit_old_notifications")
+#https://old.reddit.com/login/
+new.append("https://old.reddit.com/message/unread/")
 chrome_operations = []
 firefox_operations = []
 chrome_operations.append([hold_button,["ctrl","r",1,1]])
