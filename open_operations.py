@@ -57,8 +57,17 @@ new.append(firefox_operations)
 storage.append(new)
 
 new = []
+new.append("speechnotes")
+new.append("https://speechnotes.co/dictate/")
+chrome_operations = []
+firefox_operations = []
+new.append(chrome_operations)
+new.append(firefox_operations)
+storage.append(new)
+
+new = []
 new.append("gmail")
-new.append("https://mail.google.com/")
+new.append("https://mail.google.com/mail/u/0/#inbox")
 chrome_operations = []
 firefox_operations = []
 chrome_operations.append([hold_button,["alt","d",1,1]])
