@@ -18,20 +18,25 @@ def open2(inp):
 		inputs.append("reddit_questions")
 		inputs.append("keep")
 		inputs.append("gmail")
-		inputs.append("protonmail")
+		inputs.append("chatgpt")
+		inputs.append("speechnotes")
 		#inputs.append("reddit_notifications")
 		inputs.append("reddit_new_notifications")
 		inputs.append("reddit_old_notifications")
 		inputs.append("twitter_login")
 		inputs.append("messenger")
+		inputs.append("protonmail")
 		inputs.append("chatgpt")
+		inputs.append("speechnotes")
 	run = []
 	for a in range(0,len(inputs)):
 		val = inputs[a]
 		#print("val",val)
 		#continue
 		#generate html file to open the next 6 urls?
-		if a==0 or a==6 or a==12:	
+		#if a==0 or a==6 or a==12:
+		new_browser = 7
+		if a==0 or a==new_browser or a==new_browser*2:	
 			urls_to_load = []
 			for b in range(0,6):
 				try:
