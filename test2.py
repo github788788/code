@@ -1,9 +1,9 @@
 exec(open('util.py').read())
-exec(open('test.py').read())
+#exec(open('test.py').read())
 
-import yfinance as yf
-stock = yf.Ticker("MSFT")
-hist = stock.history(period="5y")
-
-array = dataframe_to_list([hist])
-print(array)
+stocks = load_data(["earn_stocks.xls"])
+stocks2 = []
+for a,val in enumerate(stocks):
+	stocks2.append(val[0])
+stocks = stocks2
+pri(stocks)
