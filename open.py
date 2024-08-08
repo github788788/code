@@ -13,11 +13,11 @@ def open2(inp):
 	inputs = whi("to open? just hit enter to open normal ones? = ")
 	if len(inputs)==0:
 		inputs = []
+		inputs.append("gmail")
 		inputs.append("drive")
 		inputs.append("logins")	
 		inputs.append("reddit_questions")
 		inputs.append("keep")
-		inputs.append("gmail")
 		inputs.append("chatgpt")
 		inputs.append("speechnotes")
 		#inputs.append("reddit_notifications")
@@ -36,7 +36,8 @@ def open2(inp):
 		#generate html file to open the next 6 urls?
 		#if a==0 or a==6 or a==12:
 		new_browser = 7
-		if a==0 or a==new_browser or a==new_browser*2:	
+		#if a==0 or a==new_browser or a==new_browser*2:
+		if a==0 or a==7 or a==14:	
 			urls_to_load = []
 			for b in range(0,6):
 				try:
