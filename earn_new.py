@@ -66,7 +66,7 @@ def historical_prices_yahoo(inputs):
 		timer([20])
 
 
-
+#make negative to do full amount
 stock_list_length=50	
 
 stocks = []
@@ -574,7 +574,8 @@ stocks.append("ZBRA")
 stocks.append("ZBH")
 stocks.append("ZTS")
 stocks.sort()
-stocks = stocks[0:50]
+if stock_list_length>0:
+	stocks = stocks[0:stock_list_length]
 for a,val in enumerate(stocks):
 	stocks[a]=val.upper()
 
