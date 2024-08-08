@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Boxes with Labels and Buttons</title>
+    <style>
+        button {
+            font-size: 1.2em; /* Increase button font size by 20% */
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="symbol">Symbol:</label>
+        <input type="text" id="symbol" name="symbol"><br><br>
+
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate"><br><br>
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate"><br><br>
+
+        <label for="callOrPut">Call or Put:</label>
+        <input type="text" id="callOrPut" name="callOrPut"><br><br>
+
+        <label for="optionsExpiration">Options Expiration:</label>
+        <input type="date" id="optionsExpiration" name="optionsExpiration"><br><br>
+
+        <button type="button">Polygon Option</button><br>
+        <button type="button">Polygon Stock</button><br>
+        <button type="button">TradingView</button><br>
+        <button type="button">Unusual Whales</button><br>
+        <button type="button">Yahoo Option</button>
+    </form>
+
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <input type="submit" value="Submit">
+    </form>
+    
+</body>
+</html>
