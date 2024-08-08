@@ -1370,6 +1370,15 @@ def sle(inp):
 		print (a+1,wai,"waiting...")
 		time.sleep(1)
 
+def timer(inp):
+	#sle([5])
+	wai = inp[0]
+	#time.sleep(wai)
+	for a in range(0,wai):
+		#print (a+1,wai,"waiting...",end=" ")
+		print (a+1,wai,"waiting...")
+		time.sleep(1)
+
 
 
 
@@ -3203,6 +3212,34 @@ def get_track(inp):
 			track = val[0]
 			break
 	return track
+
+def dataframe_to_list2(inputs):
+	#array = dataframe_to_list2([dataframe])
+	dataframe = inputs[0]
+	numpy_array = dataframe.to_numpy()
+	array = []
+	header_row = [dataframe.index.name]
+	for a,val in enumerate(dataframe.keys()):
+		header_row.append(val)
+	#print(header_row)
+	array.append(header_row)
+	#print(array)
+	index = dataframe.index
+	#print(index)
+	for a,val in enumerate(index):
+		print(str(val))
+		#if a==100:
+		#	break
+		new_row = []
+		new_row.append(str(val))
+		for b,valb in enumerate(numpy_array[a]):
+			valb2 = dec([valb,2])
+			new_row.append(valb2)
+		#print(new_row)
+		array.append(new_row)
+	return array
+
+
 
 
 def dataframe_to_list(inp):
