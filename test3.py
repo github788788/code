@@ -1,8 +1,6 @@
 exec(open('util.py').read())
-def test3(inp):
-	
-	subprocess.Popen(["C:\\Program Files\\ConEmu\\ConEmu64.exe","python open.py"])
-
-
-inp = []
-test3(inp)
+import yfinance as yf
+stock = yf.Ticker("MSFT")
+hist = stock.history(period="5y")
+array = dataframe_to_list2([hist])
+pri(array)
