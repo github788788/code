@@ -7,19 +7,15 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        name = request.form['name']
-        print(name)
-        exec(open('data.py').read())
-                
-        #data2 = []
-        #data2.append(["meow","cat"])
-        #data2.append(["bark","dog"])
+        post_received = request.form['symbol']
+        print(post_received)
 
-        to_send_back = data2[1][1]
+        #get data here..and send back?
+        
+        to_send_back = post_received
         return(to_send_back)    
     #return render_template('index.html')
     return(main_page_html)
-
 if __name__ == '__main__':
     #app.run(debug=True)
     port = 5000
