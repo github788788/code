@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Flask App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        <label for="symbol">Symbol:</label>
+        <input type="text" id="symbol" name="symbol"><br><br>
+
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate"><br><br>
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate"><br><br>
+
+        <label for="callOrPut">Call or Put:</label>
+        <input type="text" id="callOrPut" name="callOrPut"><br><br>
+
+        <label for="optionsExpiration">Options Expiration:</label>
+        <input type="date" id="optionsExpiration" name="optionsExpiration"><br><br>
+
+        <button type="button">Polygon Option</button><br>
+        <button type="button">Polygon Stock</button><br>
+        <button type="button">TradingView</button><br>
+        <button type="button">Unusual Whales</button><br>
+        <button type="button">Yahoo Option</button>
+    </form>
+
+
+    <form id="myForm">
+            <input type="text" name="name" Â  
+     id="name">
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>    
+    
+</body>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#myForm').submit(function(event) {
+                event.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '/',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#result').html(response);
+                    }
+                });
+            });
+        });
+    </script>
+
+</html>
