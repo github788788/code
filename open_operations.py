@@ -67,7 +67,8 @@ storage.append(new)
 
 new = []
 new.append("gmail")
-new.append("https://mail.google.com/mail/u/0/#inbox")
+#new.append("https://mail.google.com/mail/u/0/#inbox")
+new.append("https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=AdF4I75ybEdiK7zROzr_cSPPgqOFWABKFP7-CgtueOuHzOL4af7IEBQzlZE0ymwe-kDBtLwGmH4OyA&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S2132006666%3A1722880415399812&ddm=0")
 chrome_operations = []
 firefox_operations = []
 chrome_operations.append([hold_button,["alt","d",1,1]])
