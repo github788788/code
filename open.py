@@ -3,7 +3,8 @@ exec(open('open_operations.py').read())
 def open2(inp):
 	import pyperclip
 	#"chrome" or "firefox"
-	browser = "chrome"
+	#browser = "chrome"
+	browser = "firefox"
 	browser_index = ""
 	if "chrome" in browser:
 		browser_index = 2
@@ -72,7 +73,8 @@ def open2(inp):
 				if "chrome" in browser:			
 					run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
 				if "firefox" in browser:			
-					run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
+					#run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
+					run.append([hold_button,["ctrl","n",1,1]])
 
 				run.append([subprocess_open,[5,what_to_open,to_open_with]])
 			if "chrome" in browser:
