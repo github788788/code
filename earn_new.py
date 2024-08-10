@@ -121,7 +121,7 @@ def gen_earnings_dates(inputs):
 	pri(stocks)
 	final_data = []
 	for a,val in enumerate(stocks):
-		volume_traded = val[0]
+		volume_traded = float(val[0])
 		symbol = val[1]
 		print(symbol)
 		#symbol = val
@@ -161,16 +161,19 @@ def gen_earnings_dates(inputs):
 				valb[0] = valb[0][0:valb[0].find(" ")]
 			if type(valb)==list:
 				prices_around_earnings[b]=prices_around_earnings[b][0:6]
+			if type(valb)==str:
+				prices_around_earnings[b] = [prices_around_earnings[b]]
 		already = 0
 		counter = 0
 		tendencies_gap = []
 		tendencies_overday = []
 		tendencies_continuance = ""
 		for b,valb in enumerate(prices_around_earnings):
-			if type(valb)==str:
+			if len(valb)==1:
 				counter=0
 				already=0
 			if counter==1 or counter==2 and already==0:
+				#if type(valb)==list:
 				if type(valb)==list:
 					vol_valb = float(prices_around_earnings[b][5])
 					try:
@@ -200,23 +203,26 @@ def gen_earnings_dates(inputs):
 							tendencies_continuance=tendencies_continuance+"R"
 						if "-" not in str(change_gap) and "-" in str(change_day):
 							tendencies_continuance=tendencies_continuance+"R"
-						
-
 						tendencies_gap.append(change_gap)
 						tendencies_overday.append(change_day)
 			counter = counter+1
 		print(symbol)
 		pri(prices_around_earnings)
+		save_file = "earn\\"+symbol+"_prices_around_earnings.xls"
+		write_data([save_file,prices_around_earnings])
 		print(tendencies_gap)
 		print(tendencies_overday)
 		print(tendencies_continuance)
 		final_data.append([volume_traded,symbol,tendencies_continuance])
 	final_data = sorted(final_data, key=lambda x: x[2])
-	pri(final_data)	
+	pri(final_data)
+	save_file = "earn_final.xls"
+	write_data([save_file,final_data])	
+	start_file([save_file,1])
 
 
 
-stock_list_length = 100
+stock_list_length = 500
 stocks_base = load_data(["earn_stocks.xls"])
 stocks_base2 = []
 for a,val in enumerate(stocks_base):
