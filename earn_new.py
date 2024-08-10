@@ -116,38 +116,34 @@ def gen_volume_traded(inputs):
 	#print(earn_list)
 
 def gen_earnings_dates(inputs):
-	#stock_list = inputs[0]
-	stocks = load_data(["earn_volume_traded.xls"])
+	stocks = inputs[0]
+	#stocks = load_data(["earn_volume_traded.xls"])
 	pri(stocks)
+	final_data = []
 	for a,val in enumerate(stocks):
+		volume_traded = val[0]
 		symbol = val[1]
-		#load_affix = "_earnings_dates_polygon.json"
-		#load_file = "earn\\"+symbol+load_affix
-		#loaded_info = load_data([load_file])
+		print(symbol)
+		#symbol = val
 		load_file = "earn\\"+symbol+"_earnings_dates_polygon.json"
 		loaded_data = load_data([load_file])
-		#print(loaded_data)
 		quit = 0
 		increment = -1
 		match = 0
 		earnings_dates = []
-		while(quit<1):
-			increment = increment+1
-		#for b in range(0,10):
+		hits = 0
+		for b in range(0,len(loaded_data['results'])):
 			try:
-				earnings_date = loaded_data['results'][increment]['filing_date']
+				earnings_date = loaded_data['results'][b]['filing_date']
 			except:
 				continue
-				"""
-			year_or_quarter = loaded_data['results'][increment]['timeframe']
-			if "quarterly" not in year_or_quarter:
-				continue
-				"""
+			#print(earnings_date)
 			if earnings_date not in earnings_dates:
 				earnings_dates.append(earnings_date)
-				match = match+1
-				if match==10:
-					break
+				hits = hits+1
+			if hits==10:
+				break
+
 		print(symbol)
 		pri(earnings_dates)
 		historical_prices = load_data(["earn\\"+symbol+"_historical_prices_yahoo.xls"])
@@ -160,41 +156,83 @@ def gen_earnings_dates(inputs):
 					prices_around_earnings.append(historical_prices[c-1])	
 					prices_around_earnings.append(historical_prices[c])
 					prices_around_earnings.append(historical_prices[c+1])
-			#pri(new)
-			#prices_around_earnings.append(new)
 		for b,valb in enumerate(prices_around_earnings):
 			if " " in valb[0]:
 				valb[0] = valb[0][0:valb[0].find(" ")]
 			if type(valb)==list:
 				prices_around_earnings[b]=prices_around_earnings[b][0:6]
-			scan = 1
-			if scan==1:
-				if type(valb)==list:
-					print(valb)
-					vol_day_after = float(valb[5])
-					vol_day_of = float(prices_around_earnings[b+1][5])
-					print(vol_day_after,vol_day_of)
-					scan=0
+		already = 0
+		counter = 0
+		tendencies_gap = []
+		tendencies_overday = []
+		tendencies_continuance = ""
+		for b,valb in enumerate(prices_around_earnings):
 			if type(valb)==str:
-				scan=1
-		#pri(prices_around_earnings)
+				counter=0
+				already=0
+			if counter==1 or counter==2 and already==0:
+				if type(valb)==list:
+					vol_valb = float(prices_around_earnings[b][5])
+					try:
+						vol_next = float(prices_around_earnings[b+1][5])
+					except:
+						continue
+					if vol_valb>vol_next:
+						#prices_around_earnings[b].append("max")
+						already =1
+						price_close_day_before = float(prices_around_earnings[b+1][4])
+						price_open = float(valb[1])
+						price_high = float(valb[2])
+						price_low = float(valb[3])
+						price_close = float(valb[4])
+						change_gap = price_open/price_close_day_before
+						change_day = price_close/price_open
+						change_gap = dec([ratio_to_percent([change_gap]),2])
+						change_day = dec([ratio_to_percent([change_day]),2])
+						dec([val,2])
+						valb.append(change_gap)
+						valb.append(change_day)
+						if "-" in str(change_gap) and "-" in str(change_day):
+							tendencies_continuance=tendencies_continuance+"C" 
+						if "-" not in str(change_gap) and "-" not in str(change_day):
+							tendencies_continuance=tendencies_continuance+"C"
+						if "-" in str(change_gap) and "-" not in str(change_day):
+							tendencies_continuance=tendencies_continuance+"R"
+						if "-" not in str(change_gap) and "-" in str(change_day):
+							tendencies_continuance=tendencies_continuance+"R"
+						
+
+						tendencies_gap.append(change_gap)
+						tendencies_overday.append(change_day)
+			counter = counter+1
+		print(symbol)
+		pri(prices_around_earnings)
+		print(tendencies_gap)
+		print(tendencies_overday)
+		print(tendencies_continuance)
+		final_data.append([volume_traded,symbol,tendencies_continuance])
+	final_data = sorted(final_data, key=lambda x: x[2])
+	pri(final_data)	
 
 
 
-stock_list_length = 500
-stocks = load_data(["earn_stocks.xls"])
-stocks2 = []
-for a,val in enumerate(stocks):
-	stocks2.append(val[0])
-stocks = stocks2
-pri(stocks)
-stocks.sort()
-for a,val in enumerate(stocks):
-	stocks[a]=val.upper()
+stock_list_length = 100
+stocks_base = load_data(["earn_stocks.xls"])
+stocks_base2 = []
+for a,val in enumerate(stocks_base):
+	stocks_base2.append(val[0])
+stocks_base = stocks_base2
+
+stocks_volume_traded = load_data(["earn_volume_traded.xls"])
+#pri(stocks)
+#stocks.sort()
+for a,val in enumerate(stocks_base):
+	stocks_base[a]=val.upper()
 if stock_list_length>0:
-	stocks = stocks[0:stock_list_length]
+	stocks_base = stocks_base[0:stock_list_length]
+	stocks_volume_traded = stocks_volume_traded[0:stock_list_length]
 
 #earnings_dates_polygon([stocks])
-historical_prices_yahoo([stocks])
+#historical_prices_yahoo([stocks])
 #gen_volume_traded([stocks])
-gen_earnings_dates([stocks])
+gen_earnings_dates([stocks_volume_traded])
