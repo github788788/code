@@ -2394,7 +2394,10 @@ def dec(inp):
 	else:
 		fi = num.find(".")
 		num = num[0:fi+dec+1]
-	num = float(num)
+	try:
+		num = float(num)
+	except:
+		num = num
 	return num 
 
 def decimal_places(inp):
@@ -3287,7 +3290,7 @@ def list_to_dataframe(inp):
 def load_data(inp):
 	#data = load_data([load_file])
 	load_file = inp[0]
-	print("load_file = "+str(load_file))
+	#print("load_file = "+str(load_file))
 	loaded_data = ""
 	if ".xls" in load_file:
 		import xlrd
@@ -3322,11 +3325,15 @@ def load_data(inp):
 	if ".json" in load_file:
 		with open(load_file, 'r') as f:
 			loaded_data = json.load(f)
-	if ".txt" in load_file or ".py" in load_file or ".js" in load_file or ".html" in load_file:
-		#with open(load_file, encoding='utf-8') as f:
-		#    loaded_data = f.read()
-		text = open(load_file, "r")
-		loaded_data = text.read()
+		#with open(load_file, 'r') as file:
+		 #   data = json.load(file)
+
+	if ".json" not in load_file:
+		if ".txt" in load_file or ".py" in load_file or ".js" in load_file or ".html" in load_file:
+			#with open(load_file, encoding='utf-8') as f:
+			#    loaded_data = f.read()
+			text = open(load_file, "r")
+			loaded_data = text.read()
 	return loaded_data
 
 def get_earnings_dates(inp):
