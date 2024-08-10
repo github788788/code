@@ -1,17 +1,22 @@
 exec(open('util.py').read())
 #exec(open('test.py').read())
 
-earn_list = os.listdir("earn")
-for a,val in enumerate(earn_list):
-    if "historical_prices_yahoo" in val:
-        array = load_data(["earn\\"+val])
-        array.append(array[0])
-        array = array[1:len(array)]
-        array = array[::-1]
-        #save_file = "earn\\"+val
-        save_file = val
-        write_data([save_file,array])
-        
-        #pri(array[0:20])
+file_name = "earn_aug_12" #without extension
+text = load_data([file_name+".txt"])
+text =text.replace("\n\n","\n")
 
-
+values = nex4([text,"\n","\n"])
+for a,val in enumerate(values):
+    values[a] = val.replace("\n","")
+values2 = []
+for a,val in enumerate(values):
+    if len(val)>5:
+        continue
+    if len(val)==0:
+        continue
+    
+    if [val] not in values2:
+        values2.append([val])
+values = values2
+pri(values)
+write_data([file_name+".xls",values])  
