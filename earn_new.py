@@ -3,6 +3,7 @@
 exec(open('util.py').read())
 import requests
 import json
+import threading
 save_folder = "earn\\"
 def earnings_dates_polygon(inputs):
 	#earnings_dates_polygon([stocks])
@@ -67,7 +68,7 @@ def historical_prices_yahoo(inputs):
 		save_file = save_folder+symbol+save_affix
 		print(save_file)
 		write_data([save_file,array])
-		timer([20])
+		timer([11])
 
 def gen_volume_traded(inputs):
 	import json
@@ -121,8 +122,11 @@ def gen_earnings_dates(inputs):
 	pri(stocks)
 	final_data = []
 	for a,val in enumerate(stocks):
-		volume_traded = float(val[0])
 		symbol = val[1]
+		try:
+			volume_traded = float(val[0])
+		except:
+			symbol = val
 		print(symbol)
 		#symbol = val
 		load_file = "earn\\"+symbol+"_earnings_dates_polygon.json"
@@ -214,7 +218,7 @@ def gen_earnings_dates(inputs):
 		print(tendencies_overday)
 		print(tendencies_continuance)
 		final_data.append([volume_traded,symbol,tendencies_continuance])
-	final_data = sorted(final_data, key=lambda x: x[2])
+	final_data = sorted(final_data, key=lambda x: x[2], reverse=True)
 	pri(final_data)
 	save_file = "earn_final.xls"
 	write_data([save_file,final_data])	
@@ -223,12 +227,12 @@ def gen_earnings_dates(inputs):
 
 
 stock_list_length = 500
-stocks_base = load_data(["earn_stocks.xls"])
+#stocks_base = load_data(["earn_stocks.xls"])
+stocks_base = load_data(["earn_aug_12.xls"])
 stocks_base2 = []
 for a,val in enumerate(stocks_base):
 	stocks_base2.append(val[0])
 stocks_base = stocks_base2
-
 stocks_volume_traded = load_data(["earn_volume_traded.xls"])
 #pri(stocks)
 #stocks.sort()
@@ -238,7 +242,23 @@ if stock_list_length>0:
 	stocks_base = stocks_base[0:stock_list_length]
 	stocks_volume_traded = stocks_volume_traded[0:stock_list_length]
 
-#earnings_dates_polygon([stocks])
-#historical_prices_yahoo([stocks])
-#gen_volume_traded([stocks])
-gen_earnings_dates([stocks_volume_traded])
+	"""
+if __name__ == "__main__":
+    threads = []
+    for func in [earnings_dates_polygon([stocks_base]), historical_prices_yahoo([stocks_base])]:
+        thread = threading.Thread(target=func)
+        threads.append(thread)
+        thread.start()
+
+    # Wait for all threads to complete
+    for thread in threads:
+        thread.join()
+
+    print("All tasks are complete")
+	"""
+
+    
+earnings_dates_polygon([stocks_base])
+#historical_prices_yahoo([stocks_base])
+gen_volume_traded([stocks_base])
+gen_earnings_dates([stocks_base])
