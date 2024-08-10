@@ -2381,7 +2381,12 @@ def pro3(inp):
 	print(str(len(le2)-inc)+" remaining for "+sou+"...")
 	"""
 
-
+def ratio_to_percent(inputs):
+	#value_back = ratio_to_percent([value_in])
+	ratio = inputs[0]
+	ratio2 = ratio-1
+	ratio2 = ratio2*100
+	return ratio2
 
 
 def dec(inp):
