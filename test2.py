@@ -1,10 +1,11 @@
 exec(open('util.py').read())
 #exec(open('test.py').read())
 
-file_name = "earn_aug_12" #without extension
+file_name = "earn_aug_19" #without extension
 text = load_data([file_name+".txt"])
-text =text.replace("\n\n","\n")
 
+
+text =text.replace("\n\n","\n")
 values = nex4([text,"\n","\n"])
 for a,val in enumerate(values):
     values[a] = val.replace("\n","")
