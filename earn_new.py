@@ -1,5 +1,3 @@
-
-
 exec(open('util.py').read())
 import requests
 import json
@@ -73,6 +71,7 @@ def historical_prices_yahoo(inputs):
 def gen_volume_traded(inputs):
 	import json
 	stock_list = inputs[0]
+	date = inputs[1]
 	earn_list = os.listdir("earn")
 	load_affix = "_historical_prices_yahoo.xls"
 	list_volume_traded = []
@@ -107,7 +106,8 @@ def gen_volume_traded(inputs):
 		list_volume_traded.append(new_stock)
 	list_volume_traded.sort(reverse=True)
 	pri(list_volume_traded)
-	save_file = "earn_volume_traded.xls"
+	#save_file = "earn_volume_traded.xls"
+	save_file = date+"_volume_traded.xls"
 	try:
 		write_data([save_file,list_volume_traded])
 	except:
@@ -117,16 +117,19 @@ def gen_volume_traded(inputs):
 	#print(earn_list)
 
 def gen_earnings_dates(inputs):
+	#stocks = load_data(["earn_volume_traded.xls",])
 	stocks = inputs[0]
-	#stocks = load_data(["earn_volume_traded.xls"])
+	date = inputs[1]
 	pri(stocks)
 	final_data = []
 	for a,val in enumerate(stocks):
 		symbol = val[1]
-		try:
-			volume_traded = float(val[0])
-		except:
-			symbol = val
+		company = val[2]
+		#try:
+		print(val)
+		volume_traded = float(val[0])
+		#except:
+		#symbol = val
 		print(symbol)
 		#symbol = val
 		load_file = "earn\\"+symbol+"_earnings_dates_polygon.json"
@@ -217,19 +220,43 @@ def gen_earnings_dates(inputs):
 		print(tendencies_gap)
 		print(tendencies_overday)
 		print(tendencies_continuance)
-		final_data.append([volume_traded,symbol,tendencies_continuance])
-	final_data = sorted(final_data, key=lambda x: x[2], reverse=True)
+		final_data.append([volume_traded,symbol,tendencies_continuance,company])
+	final_data = sorted(final_data, key=lambda x: x[0], reverse=True)
 	pri(final_data)
-	save_file = "earn_final.xls"
+	save_file = date+"_final.xls"
 	write_data([save_file,final_data])	
 	start_file([save_file,1])
 
-
+def gen_stock_list(inputs):
+	#gen_stock_list(["earn_aug_26.txt"])
+	load_file = inputs[0]
+	if ".txt" not in load_file:
+		load_file = load_file+".txt"
+	text = load_data([load_file])
+	text =text.replace("\n\n","\n")
+	values = nex4([text,"\n","\n"])
+	for a,val in enumerate(values):
+	    values[a] = val.replace("\n","")
+	values2 = []
+	for a,val in enumerate(values):
+	    if len(val)>5:
+	        continue
+	    if len(val)==0:
+	        continue
+	    if [val] not in values2:
+	        values2.append([val])
+	values = values2
+	pri(values)
+	out_file = load_file.replace(".txt",".xls")
+	write_data([out_file,values])  
 
 stock_list_length = 500
 #stocks_base = load_data(["earn_stocks.xls"])
-stocks_base = load_data(["earn_aug_12.xls"])
-stocks_base2 = []
+#stocks_base = load_data(["earn_aug_12.xls"])
+base_file = "earn_aug_26"
+gen_stock_list([base_file])    
+stocks_base = load_data([base_file+".xls"])
+stocks_base2 = []	
 for a,val in enumerate(stocks_base):
 	stocks_base2.append(val[0])
 stocks_base = stocks_base2
@@ -242,23 +269,7 @@ if stock_list_length>0:
 	stocks_base = stocks_base[0:stock_list_length]
 	stocks_volume_traded = stocks_volume_traded[0:stock_list_length]
 
-	"""
-if __name__ == "__main__":
-    threads = []
-    for func in [earnings_dates_polygon([stocks_base]), historical_prices_yahoo([stocks_base])]:
-        thread = threading.Thread(target=func)
-        threads.append(thread)
-        thread.start()
-
-    # Wait for all threads to complete
-    for thread in threads:
-        thread.join()
-
-    print("All tasks are complete")
-	"""
-
-    
 earnings_dates_polygon([stocks_base])
-#historical_prices_yahoo([stocks_base])
-gen_volume_traded([stocks_base])
-gen_earnings_dates([stocks_base])
+historical_prices_yahoo([stocks_base])
+gen_volume_traded([stocks_base,base_file])
+gen_earnings_dates([stocks_volume_traded,base_file])
