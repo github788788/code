@@ -4,7 +4,7 @@ def open2(inp):
 	import pyperclip
 	#"chrome" or "firefox"
 	#browser = "chrome"
-	browser = "firefox"
+	browser = "chrome"
 	browser_index = ""
 	if "chrome" in browser:
 		browser_index = 2
