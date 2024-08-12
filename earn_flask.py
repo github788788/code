@@ -9,21 +9,19 @@ def index():
     if request.method == 'POST':
         post_received = request.form['symbol']
         post_altered = post_received.upper()
-        array = load_data(["earn_aug_26_final.xls"])
+        continue_reverse = load_data(["earn_500_final.xls"])
+        print(continue_reverse)
+        file_to_load = "earn\\"+post_altered+"_prices_around_earnings.xls"
+        prices = load_data([file_to_load])
+        #print(prices)
         to_send_back="not found"
-        for a,val in enumerate(array):
+        for a,val in enumerate(continue_reverse):
             symbol = val[1]
             if post_altered==symbol:
                 to_send_back=val
                 break
         print("to send back = ",to_send_back)
-        #to_send_back2 = ""
-        #for a,val in enumerate(to_send_back):
-        #    to_send_back2 = to_send_back2+val+"<br>"
-        #pri(array)
-        #print(post_received)
-        #get data here..and send back?
-        #to_send_back = post_received
+        #end()
         return(to_send_back)    
     #return render_template('index.html')
     return(main_page_html)
