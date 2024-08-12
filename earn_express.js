@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     const postReceived = req.body.symbol;
     const postAltered = postReceived.toUpperCase();
-    const continueReverse = loadData(['earn_500_final.xls']);
+    const continueReverse = load_data(['earn_500_final.xls']);
     console.log(continueReverse);
 
     const fileToLoad = path.join('earn', `${postAltered}_prices_around_earnings.xls`);
