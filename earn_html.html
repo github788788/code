@@ -48,10 +48,11 @@
           <option value="Bloomberg">Bloomberg</option>
         </select><br>   
         <button type="submit" onclick="openURL()">Submit</button><br> 
-    <div id="result1"></div>    
-    <div id="result2"></div>
-    <div id="result3"></div>  
-    <div id="result4"></div> 
+    Volume Traded = <span id="result1"></span><br>   
+    Symbol = <span id="result2"></span><br>
+    Continue/Reverse = <span id="result3"></span> <br> 
+    Company Name = <span id="result4"></span><br>
+    <span id="result5"></span> 
 </body>
     <script>
         function openURL() {
@@ -99,14 +100,16 @@
                     url: '/',
                     data: $(this).serialize(),
                     success: function(response) {
-                        var volume_traded =response[0] 
-                        var symbol =response[1]
-                        var continue_reverse =response[2]
-                        var company_name =response[3]
-                        $('#result1').html(volume_traded);
-                        $('#result2').html(symbol);
-                        $('#result3').html(continue_reverse);
-                        $('#result4').html(company_name);
+                        /*
+                        var volume_traded ="Volume Traded = "+response[0] 
+                        var symbol ="Symbol = "+response[1]
+                        var continue_reverse ="Continue or Reverse = "+response[2]
+                        var company_name ="Company Name = "+response[3]
+                        */
+                        $('#result1').html(response[0]);
+                        $('#result2').html(response[1]);
+                        $('#result3').html(response[2]);
+                        $('#result4').html(response[3]);
                     }
                 });
             });
