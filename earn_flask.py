@@ -14,13 +14,15 @@ def index():
         file_to_load = "earn\\"+post_altered+"_prices_around_earnings.xls"
         prices = load_data([file_to_load])
         #print(prices)
-        to_send_back="not found"
+        to_send_back=[]
         for a,val in enumerate(continue_reverse):
             symbol = val[1]
             if post_altered==symbol:
-                to_send_back=val
+                #to_send_back=val
+                to_send_back.append(val)
                 break
         print("to send back = ",to_send_back)
+        to_send_back.append(prices)
         #end()
         return(to_send_back)    
     #return render_template('index.html')
