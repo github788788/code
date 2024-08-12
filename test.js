@@ -2,8 +2,8 @@ const fs = require('fs');
 const utils = fs.readFileSync('util.js', 'utf-8');eval(utils);
 function test(inp) {
 	
-	display = read_txt(["text.txt"])
-	console.log(display)
+	data = load_data("earn_500_final.xls")
+	console.log(data)
 	
 //comments before final bracket
 }
