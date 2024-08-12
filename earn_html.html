@@ -52,7 +52,7 @@
     Symbol = <span id="result2"></span><br>
     Continue/Reverse = <span id="result3"></span> <br> 
     Company Name = <span id="result4"></span><br>
-    <span id="result5"></span> 
+    Prices<br><span id="result5"></span> 
 </body>
     <script>
         function openURL() {
@@ -106,10 +106,18 @@
                         var continue_reverse ="Continue or Reverse = "+response[2]
                         var company_name ="Company Name = "+response[3]
                         */
-                        $('#result1').html(response[0]);
-                        $('#result2').html(response[1]);
-                        $('#result3').html(response[2]);
-                        $('#result4').html(response[3]);
+                        prices = response[1]
+                        prices2 = ""
+                        for (let i = 0; i < prices.length; i++) {
+                            prices2 = prices2+prices[i]+"<br>"
+                        }
+                        //prices = prices2
+
+                        $('#result1').html(response[0][0]);
+                        $('#result2').html(response[0][1]);
+                        $('#result3').html(response[0][2]);
+                        $('#result4').html(response[0][3]);
+                        $('#result5').html(prices2);
                     }
                 });
             });
