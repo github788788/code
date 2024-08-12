@@ -227,8 +227,10 @@ def gen_earnings_dates(inputs):
 	header = [["Volume Traded","Symbol","Continue/Reverse","Company Name"]]
 	final_data = header+final_data
 	save_file = date+"_final.xls"
+	html_out = save_file.replace(".xls",".html")
+	html_table_from_array([html_out,final_data])
 	write_data([save_file,final_data])	
-	start_file([save_file,1])
+	start_file([html_out,1])
 
 def gen_stock_list(inputs):
 	#gen_stock_list(["earn_aug_26.txt"])
@@ -249,34 +251,38 @@ def gen_stock_list(inputs):
 	    if [val] not in values2:
 	        values2.append([val])
 	values = values2
-	values = header+values
-
+	# values = header+values
 	pri(values)
+	#end()
 	out_file = load_file.replace(".txt",".xls")
-	write_data([out_file,values])  
+	write_data([out_file,values])
+	html_out = load_file.replace(".txt",".html")
+	#html_table_from_array([html_out,values])  
 
 stock_list_length = 500
 #stocks_base = load_data(["earn_stocks.xls"])
 #stocks_base = load_data(["earn_aug_12.xls"])
-#base_file = "earn_aug_26"
-base_file = "earn_500"
+
+base_file = "earn_aug_12"
+#base_file = "earn_500"
 stocks_base = load_data([base_file+".xls"])
 stocks_base2 = []	
 for a,val in enumerate(stocks_base):
 	stocks_base2.append(val[0])
 stocks_base = stocks_base2
-stocks_volume_traded = load_data([base_file+"_volume_traded.xls"])
+gen_stock_list([base_file])
 #pri(stocks)
 #stocks.sort()
 for a,val in enumerate(stocks_base):
 	stocks_base[a]=val.upper()
-if stock_list_length>0:
-	stocks_base = stocks_base[0:stock_list_length]
-	stocks_volume_traded = stocks_volume_traded[0:stock_list_length]
-
-if "500" not in base_file:
-	gen_stock_list([base_file])    
+#if stock_list_length>0:
+#	stocks_base = stocks_base[0:stock_list_length]
+#	stocks_volume_traded = stocks_volume_traded[0:stock_list_length]
+#if "500" not in base_file:
+#	gen_stock_list([base_file])  
+#end()  
 earnings_dates_polygon([stocks_base])
 historical_prices_yahoo([stocks_base])
-#gen_volume_traded([stocks_base,base_file])
+gen_volume_traded([stocks_base,base_file])
+stocks_volume_traded = load_data([base_file+"_volume_traded.xls"])
 gen_earnings_dates([stocks_volume_traded,base_file])
