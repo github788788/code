@@ -7,14 +7,11 @@ const { exec } = require('child_process');
 // Define the port and create the Express app
 const app = express();
 const port = 3000; // You can change this to any available port number
-// Middleware to handle JSON requests
+// Middleware to parse JSON bodies
 app.use(express.json());
 
-// Middleware to parse JSON bodies
-app.use(bodyParser.json());
-
 // Middleware to parse URL-encoded bodies (for form submissions)
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // Basic route
 //data = load_data("earn_500_final.xls")
@@ -37,38 +34,26 @@ app.route('/')
     })
     .post((req, res) => {
         const postReceived = req.body.symbol;
+        const post_altered = postReceived.toUpperCase();
         //const postAltered = postReceived.toUpperCase();
         data = load_data("earn_500_final.xls")
-        console.log(data)
-        console.log(postReceived)
-
-        end()
-
-        for (let i = 0; i < 5; i++) {
-            console.log(i);
-        }
-
-        // Load data from the Excel file
-        //const continueReverse = loadData(path.join(__dirname, 'earn_500_final.xls'));
-        //console.log('continueReverse:', continueReverse);
-
-        const fileToLoad = path.join(__dirname, 'earn', `${postReceived}_prices_around_earnings.xls`);
-        const prices = loadData(fileToLoad);
-        // console.log('prices:', prices);
-
+        //console.log(data)
+        console.log(post_altered)
         let toSendBack = [];
-        for (const val of continueReverse) {
-            const symbol = val[1];
-            if (postAltered === symbol) {
-                toSendBack.push(val);
-                break;
+        for (let a = 0; a < data.length; a++) {
+            val = data[a]
+            var symbol = val[1] 
+            //console.log(symbol);
+            if (symbol==post_altered){
+                console.log(data[a])
+                //toSendBack = [data[a]]
+                //toSendBack.push(data[a])
+                toSendBack = data[a]
+                break
             }
-        }
-        
-        console.log('toSendBack =', toSendBack);
-        toSendBack.push(prices);
-
-        // Send the data back as JSON
+        }        
+        //prices = load_data("earn_500_final.xls")
+        console.log(toSendBack)
         res.json(toSendBack);
     });
 
