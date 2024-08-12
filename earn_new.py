@@ -223,6 +223,9 @@ def gen_earnings_dates(inputs):
 		final_data.append([volume_traded,symbol,tendencies_continuance,company])
 	final_data = sorted(final_data, key=lambda x: x[0], reverse=True)
 	pri(final_data)
+
+	header = [["Volume Traded","Symbol","Continue/Reverse","Company Name"]]
+	final_data = header+final_data
 	save_file = date+"_final.xls"
 	write_data([save_file,final_data])	
 	start_file([save_file,1])
@@ -246,6 +249,8 @@ def gen_stock_list(inputs):
 	    if [val] not in values2:
 	        values2.append([val])
 	values = values2
+	values = header+values
+
 	pri(values)
 	out_file = load_file.replace(".txt",".xls")
 	write_data([out_file,values])  
