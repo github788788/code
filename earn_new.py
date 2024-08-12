@@ -253,14 +253,14 @@ def gen_stock_list(inputs):
 stock_list_length = 500
 #stocks_base = load_data(["earn_stocks.xls"])
 #stocks_base = load_data(["earn_aug_12.xls"])
-base_file = "earn_aug_26"
-gen_stock_list([base_file])    
+#base_file = "earn_aug_26"
+base_file = "earn_500"
 stocks_base = load_data([base_file+".xls"])
 stocks_base2 = []	
 for a,val in enumerate(stocks_base):
 	stocks_base2.append(val[0])
 stocks_base = stocks_base2
-stocks_volume_traded = load_data(["earn_volume_traded.xls"])
+stocks_volume_traded = load_data([base_file+"_volume_traded.xls"])
 #pri(stocks)
 #stocks.sort()
 for a,val in enumerate(stocks_base):
@@ -269,7 +269,9 @@ if stock_list_length>0:
 	stocks_base = stocks_base[0:stock_list_length]
 	stocks_volume_traded = stocks_volume_traded[0:stock_list_length]
 
+if "500" not in base_file:
+	gen_stock_list([base_file])    
 earnings_dates_polygon([stocks_base])
 historical_prices_yahoo([stocks_base])
-gen_volume_traded([stocks_base,base_file])
+#gen_volume_traded([stocks_base,base_file])
 gen_earnings_dates([stocks_volume_traded,base_file])
