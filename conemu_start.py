@@ -31,6 +31,13 @@ def startup(inp):
 	command = "cd "+nav_to
 	os.system(command)
 	time.sleep(2)
+
+	command = "python open6.py"
+	os.system(command)
+	"""
+	time.sleep(2)
+	
+
 	#command = "python open.py"
 	#os.system(command)
 	copy_paste2(["python open.py",2])
@@ -38,7 +45,7 @@ def startup(inp):
 	pyautogui.press("enter")
 
 
-
+	"""
 
 inp = []
 startup(inp)
