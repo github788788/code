@@ -1,0 +1,3 @@
+- min 2 gb ram
+- change resolution
+- 20 frames per second
