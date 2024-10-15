@@ -1914,6 +1914,9 @@ def sye():
 def end():
 	sys.exit()
 
+def exit():
+	sys.exit()
+
 
 def upd2(inp):
 	cwd = os.getcwd()
@@ -2628,7 +2631,7 @@ def wri5(inp):
 	new.write(text)
 	new.close()
 
-
+	"""
 def get(inp):
 	#get([xpath])
 	loc = inp[0]
@@ -2653,7 +2656,7 @@ def get(inp):
 			if len(bac)==0:
 				break
 	return ret
-
+	"""
 
 def xpa(inp):
 	fil = inp[0]
@@ -3865,7 +3868,17 @@ def subprocess_open(inputs):
 	what_to_open = inputs[1]
 	to_open_with = inputs[2]
 	if "chrome" in to_open_with:
-		subprocess.Popen([to_open_with, "--incognito",what_to_open])
+		#subprocess.Popen([to_open_with, "--incognito",what_to_open])
+		#subprocess.run([to_open_with, '--incognito', '--new-window', what_to_open])
+
+		command = [to_open_with, '--incognito', '--new-window', what_to_open]
+
+		# Use Popen to execute the command
+		process = subprocess.Popen(command)
+
+		# Optionally wait for the process to complete
+		#process.wait()
+
 	if "firefox" in to_open_with:
 		subprocess.Popen([to_open_with,what_to_open])
 
