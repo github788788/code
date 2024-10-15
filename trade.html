@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create URL</title>
+    <script>
+        function createURL() {
+            const base = document.getElementById('baseInput').value;
+            const query = document.getElementById('queryInput').value;
+            const call_or_put = document.getElementById('call_or_put_input').value;
+
+            // Construct the URL
+
+            //https://finance.yahoo.com/quote/SPY241015C00580000/
+
+            const url = `https://finance.yahoo.com/quote/${base}241015${call_or_put}00${encodeURIComponent(query)}000/`;
+            document.getElementById('result').innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Create a URL</h1>
+    <label for="baseInput">stock symbol:</label>
+    <input type="text" id="baseInput" placeholder="e.g., https://example.com"><br><br>    
+    <label for="queryInput">price:</label>
+    <input type="text" id="queryInput" placeholder="e.g., search term"><br><br>
+
+    <label for="baseInput">call or put:</label>
+    <input type="text" id="call_or_put_input" placeholder=""><br><br>
+
+
+
+    <button onclick="createURL()">Create URL</button>
+    
+    <h2>url to get:</h2>
+    <p id="result"></p>
+</body>
+</html>
+
