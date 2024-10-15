@@ -36,9 +36,23 @@ def open2(inp):
 		#continue
 		#generate html file to open the next 6 urls?
 		#if a==0 or a==6 or a==12:
-		new_browser = 7
+		new_browser = 8
 		#if a==0 or a==new_browser or a==new_browser*2:
-		if a==0 or a==7 or a==14:	
+		print("a = ",a)
+		match = 0
+		if a==0:
+			match = 1
+		if a==new_browser:
+			match = 1
+		if a==new_browser*2:
+			match = 1
+		if a==new_browser*3:
+			match = 1
+		#if a==0 or a==new_browser*2 or a==new_browser*3:
+		if match==1:
+			print("match = ",a)
+			print(new_browser,new_browser*2,new_browser*3)	
+			#continue		
 			urls_to_load = []
 			for b in range(0,6):
 				try:
@@ -71,7 +85,8 @@ def open2(inp):
 				run.append([subprocess_open,[5,what_to_open,to_open_with]])
 			if a>0:
 				if "chrome" in browser:			
-					run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
+					#run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
+					run.append([subprocess_open,[5,what_to_open,to_open_with]])
 				if "firefox" in browser:			
 					#run.append([hold_2_buttons,["ctrl","shift","n",1,1]])
 					run.append([hold_button,["ctrl","n",1,1]])
@@ -97,10 +112,12 @@ def open2(inp):
 				break	
 		run.append([hold_button,["ctrl","pagedown",1,0]])
 	pri(run)
-	#end()
+	
+	exit()
 	for a,val in enumerate(run):
 		function = val[0]
 		inputs = val[1]
+		print(function,inputs)
 		function(inputs)
 
 	
