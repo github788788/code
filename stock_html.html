@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Generator</title>
+</head>
+<body>
+    <h1>URL Generator</h1>
+    <label for="input1">Symbol:</label>
+    <input type="text" id="input1" placeholder="Enter first value">
+    <br>
+    <label for="input2">Price:</label>
+    <input type="text" id="input2" placeholder="Enter second value">
+    <br>
+    <button onclick="generateURL()">Generate URL</button>
+    <p id="result"></p>
+
+    <script>
+        function generateURL() {
+            const input1 = document.getElementById('input1').value;
+            const input2 = document.getElementById('input2').value;
+
+            // Replace with your desired URL structure
+            const baseUrl = 'https://finance.yahoo.com/quote/';
+            const url = `${baseUrl}${encodeURIComponent(input1)}241014C00${encodeURIComponent(input2)}000/`;
+
+            document.getElementById('result').innerText = `${url}`;
+
+
+            
+        }
+    </script>
+</body>
+</html>
