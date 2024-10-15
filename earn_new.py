@@ -263,8 +263,8 @@ stock_list_length = 500
 #stocks_base = load_data(["earn_stocks.xls"])
 #stocks_base = load_data(["earn_aug_12.xls"])
 
-base_file = "earn_aug_12"
-#base_file = "earn_500"
+#base_file = "earn_aug_12"
+base_file = "earn_500"
 stocks_base = load_data([base_file+".xls"])
 stocks_base2 = []	
 for a,val in enumerate(stocks_base):
