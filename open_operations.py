@@ -2,6 +2,7 @@ exec(open('util.py').read())
 
 storage = []
 
+"""
 new = []
 new.append("drive")
 new.append("https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&ec=asw-drive-hero-goto&ifkv=AS5LTARnSfrrHGENO20pgrR0B1yuSXJC1173OOwXpjxD2p2G3O-rTgg8Vk66Rlan5Eykn2JfO8Oc0g&ltmpl=drive&passive=true&service=wise&usp=gtd&utm_campaign=web&utm_content=gotodrive&utm_medium=button&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S823815728%3A1717671124532768&ddm=0")
@@ -28,6 +29,7 @@ firefox_operations.append([key,[["enter",1,0,0]]])
 new.append(chrome_operations)
 new.append(firefox_operations)
 storage.append(new)
+"""
 
 new = []
 new.append("logins")
@@ -57,6 +59,15 @@ new.append(firefox_operations)
 storage.append(new)
 
 new = []
+new.append("chatgpt")
+new.append("https://chatgpt.com/")
+chrome_operations = []
+firefox_operations = []
+new.append(chrome_operations)
+new.append(firefox_operations)
+storage.append(new)
+
+new = []
 new.append("speechnotes")
 new.append("https://speechnotes.co/dictate/")
 chrome_operations = []
@@ -65,12 +76,64 @@ new.append(chrome_operations)
 new.append(firefox_operations)
 storage.append(new)
 
+
+new = []
+new.append("gmail")
+new.append("https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=Ab5oB3rhCGFKTPX4FwWhaPpObpu00C7Lc-kTlqPpeTWyjSRLvTWV4xM9FJjG6AbQcTafrMfoVI03hA&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S1678326468%3A1724972797756352&ddm=0")
+username = "media788788"
+password = "Medmed1!"
+chrome_operations = []
+firefox_operations = []
+chrome_operations.append([key,[["esc",1,0,0]]])
+chrome_operations.append([copy_paste2,[username,1]])
+chrome_operations.append([key,[["esc",1,0,0]]])
+chrome_operations.append([key,[["enter",1,0,7]]])
+chrome_operations.append([key,[["esc",1,0,0]]])
+chrome_operations.append([copy_paste2,[password,1]])
+chrome_operations.append([key,[["esc",1,0,1]]])
+chrome_operations.append([key,[["enter",1,0,0]]])
+firefox_operations.append([key,[["esc",1,0,0]]])
+firefox_operations.append([copy_paste2,[username,1]])
+firefox_operations.append([key,[["esc",1,0,1]]])
+firefox_operations.append([key,[["enter",1,0,5]]])
+firefox_operations.append([key,[["esc",1,0,1]]])
+firefox_operations.append([copy_paste2,[password,1]])
+firefox_operations.append([key,[["esc",1,0,1]]])
+firefox_operations.append([key,[["enter",1,0,0]]])
+new.append(chrome_operations)
+new.append(firefox_operations)
+storage.append(new)
+
+new = []
+new.append("drive")
+#new.append("https://mail.google.com/mail/u/0/#inbox")
+new.append("https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fdrive.google.com%2F%3Futm_source%3Den&ec=asw-drive-hero-goto&ifkv=AS5LTARnSfrrHGENO20pgrR0B1yuSXJC1173OOwXpjxD2p2G3O-rTgg8Vk66Rlan5Eykn2JfO8Oc0g&ltmpl=drive&passive=true&service=wise&usp=gtd&utm_campaign=web&utm_content=gotodrive&utm_medium=button&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S823815728%3A1717671124532768&ddm=0")
+chrome_operations = []
+firefox_operations = []
+"""
+chrome_operations.append([hold_button,["alt","d",1,1]])
+chrome_operations.append([copy_paste2,["gmail.com",1]])
+chrome_operations.append([key,[["enter",1,0,0]]])
+firefox_operations.append([hold_button,["alt","d",1,1]])
+firefox_operations.append([copy_paste2,["gmail.com",1]])
+firefox_operations.append([key,[["enter",1,0,0]]])
+"""
+new.append(chrome_operations)
+new.append(firefox_operations)
+storage.append(new)
+
+
+"""
+
+
+
 new = []
 new.append("gmail")
 #new.append("https://mail.google.com/mail/u/0/#inbox")
 new.append("https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=AdF4I75ybEdiK7zROzr_cSPPgqOFWABKFP7-CgtueOuHzOL4af7IEBQzlZE0ymwe-kDBtLwGmH4OyA&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S2132006666%3A1722880415399812&ddm=0")
 chrome_operations = []
 firefox_operations = []
+
 chrome_operations.append([hold_button,["alt","d",1,1]])
 chrome_operations.append([copy_paste2,["gmail.com",1]])
 chrome_operations.append([key,[["enter",1,0,0]]])
@@ -80,6 +143,8 @@ firefox_operations.append([key,[["enter",1,0,0]]])
 new.append(chrome_operations)
 new.append(firefox_operations)
 storage.append(new)
+
+"""
 
 new = []
 new.append("protonmail")
@@ -101,8 +166,8 @@ new.append(firefox_operations)
 storage.append(new)
 
 new = []
-new.append("reddit_new_notifications")
-new.append("https://www.reddit.com/notifications")
+new.append("reddit_old_notifications")
+new.append("https://old.reddit.com/message/unread/")
 
 """
 old login info
@@ -114,7 +179,7 @@ email registered = davidssonbob@gmail.com
 email pw = Davdav1!
 """
 username = "CIA7788"
-password = "mustang1"
+password = "intel7788"
 
 chrome_operations = []
 firefox_operations = []
@@ -131,9 +196,9 @@ new.append(firefox_operations)
 storage.append(new)
 
 new = []
-new.append("reddit_old_notifications")
+new.append("reddit_new_notifications")
 #https://old.reddit.com/login/
-new.append("https://old.reddit.com/message/unread/")
+new.append("https://www.reddit.com/notifications")
 chrome_operations = []
 firefox_operations = []
 chrome_operations.append([hold_button,["ctrl","r",1,1]])
@@ -154,9 +219,9 @@ chrome_operations.append([sle,[3]])
 chrome_operations.append([cf_et_new,["apple",1,1,1]])
 #chrome_operations.append([key,[["esc",1,0,1]]])
 #chrome_operations.append([hold_button,["shift","tab",1,1]])
-chrome_operations.append([copy_paste2,["oversight333",1]])
+chrome_operations.append([copy_paste2,["vote_on_policy",1]])
 chrome_operations.append([key,[["enter",1,0,2]]])
-chrome_operations.append([copy_paste2,["Oveove1!",1]])
+chrome_operations.append([copy_paste2,["votevote",1]])
 chrome_operations.append([key,[["enter",1,0,0]]])
 firefox_operations.append([])
 new.append(chrome_operations)
@@ -165,29 +230,15 @@ storage.append(new)
 
 new = []
 new.append("messenger")
-new.append("https://www.messenger.com")
+new.append("https://www.facebook.com/OVCOM/")
 chrome_operations = []
 firefox_operations = []
 #chrome_operations.append([copy_paste2,[username,1]])
-chrome_operations.append([key,[["tab",6,0,1]]])
+#chrome_operations.append([key,[["tab",6,0,1]]])
 chrome_operations.append([copy_paste2,["violin78@protonmail.com",1]])
 chrome_operations.append([key,[["tab",1,0,0]]])
 chrome_operations.append([copy_paste2,["Viovio1!",1]])
 chrome_operations.append([key,[["enter",1,0,0]]])
-firefox_operations.append([])
-new.append(chrome_operations)
-new.append(firefox_operations)
-storage.append(new)
-
-new = []
-new.append("chatgpt")
-new.append("https://chatgpt.com/")
-chrome_operations = []
-firefox_operations = []
-#chrome_operations.append([copy_paste2,[username,1]])
-#chrome_operations.append([key,[["enter",1,0,5]]])
-#chrome_operations.append([copy_paste2,["Medmed1!",1]])
-#chrome_operations.append([key,[["enter",1,0,0]]])
 firefox_operations.append([])
 new.append(chrome_operations)
 new.append(firefox_operations)
