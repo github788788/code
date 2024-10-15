@@ -1,7 +1,8 @@
 exec(open('util.py').read())
 def compile(inp):
 
-	main_file = "conemu_start.py"
+	#main_file = "conemu_start.py"
+	main_file = "open_exe.py"
 	files_to_compile = []
 	files_to_compile.append("util")
 	#files_to_compile.append("nav2")
