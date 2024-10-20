@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEA API Query</title>
+</head>
+<body>
+    <h1>BEA API GDP Data</h1>
+    <button id="fetch-data">Fetch GDP Data</button>
+    <pre id="output"></pre>
+
+    <script>
+        document.getElementById('fetch-data').addEventListener('click', () => {
+            const url = "https://apps.bea.gov/api/data/";
+            const params = new URLSearchParams({
+                'UserID': 'YOUR_API_KEY', // Replace with your BEA API key
+                'method': 'GetData',
+                'datasetname': 'NIPA',
+                'TableName': '1', // GDP table
+                'Frequency': 'A', // Annual data
+                'Year': '2022', // Specify the year
+                'ResultFormat': 'JSON'
+            });
+
+            fetch(`${url}?${params}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById('output').textContent = `Error: ${error.message}`;
+                });
+        });
+    </script>
+</body>
+</html>
