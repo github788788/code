@@ -6,39 +6,32 @@
     <title>Create URL</title>
     <script>
         function createURL() {
-            const base = document.getElementById('baseInput').value;
-            const query = document.getElementById('queryInput').value;
+            const base = document.getElementById('stock_symbol').value;
+            const query = document.getElementById('price_input').value;
             const call_or_put = document.getElementById('call_or_put_input').value;
-
-            // Construct the URL
-
-            //https://finance.yahoo.com/quote/SPY241015C00580000/
-
-            const url = `https://finance.yahoo.com/quote/${base}241015${call_or_put}00${encodeURIComponent(query)}000/`;
-            document.getElementById('result').innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+            const url_1 = `https://finance.yahoo.com/quote/${base}241015${call_or_put}00${encodeURIComponent(query)}000/`;
+            document.getElementById('url_1').innerHTML = `<a href="${url_1}" target="_blank">${url_1}</a>`;
+            const url_2 = `https://www.tradingview.com/chart/?symbol=`+base;
+            document.getElementById('url_2').innerHTML = `<a href="${url_2}" target="_blank">${url_2}</a>`;
         }
-
-
-
-
     </script>
 </head>
 <body>
-    <h1>Create a URL</h1>
-    <label for="baseInput">stock symbol:</label>
-    <input type="text" id="baseInput" placeholder="e.g., https://example.com"><br><br>    
-    <label for="queryInput">price:</label>
-    <input type="text" id="queryInput" placeholder="e.g., search term"><br><br>
-
-    <label for="baseInput">call or put:</label>
-    <input type="text" id="call_or_put_input" placeholder=""><br><br>
-
-
-
-    <button onclick="createURL()">Create URL</button>
+    <h1>trading</h1>
+    <label for="stock_symbol">stock symbol:</label>
+    <input type="text" id="stock_symbol" onchange="createURL()" placeholder="spy"><br><br>    
+    <label for="price_input">price:</label>
+    <input onchange="createURL()" type="text" id="price_input" placeholder="580"><br><br>
+    <label for="stock_symbol">call or put:</label>
+    <input onchange="createURL()" type="text" id="call_or_put_input" placeholder="c"><br><br>
+    <button onclick="createURL()">Create URL</button>media788788
+    Medmed1!
+    media788788
+    Medmed1!
     
     <h2>url to get:</h2>
-    <p id="result"></p>
+    <p id="url_1"></p>
+    <p id="url_2"></p>
 </body>
 </html>
 
